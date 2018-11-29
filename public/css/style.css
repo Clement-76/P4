@@ -1,0 +1,184 @@
+:root {
+    --arrow-width: 25px;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.overlay {
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(38, 49, 69, 0.5);
+    opacity: 0;
+    display: none;
+}
+
+header {
+    position: fixed;
+    z-index: 10;
+/*    background-color: #7cb4cd;*/
+    background-color: #84A4D1;
+    height: 100%;
+    right: 0;
+    transform: translateX(100%);
+    transition-duration: 0.5s;
+    padding: 5px;
+}
+
+header nav {
+    padding: 0 25px;
+}
+
+header ul {
+    padding-left: 0;
+}
+
+header li {
+    list-style: none;
+    padding: 6px 12vw 6px 0;
+    border-bottom: 1px solid #EDF1FC;
+
+}
+
+header a {
+    color: #fff;
+    font-size: 1.25em;
+}
+
+header a:hover {
+    color: #fff;
+}
+
+header.open_menu {
+    transform: translateX(0);
+}
+
+.close_menu {
+    position: relative;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    margin-left: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.close_menu div {
+    height: 3px;
+    background-color: #fff;
+    width: 25px;
+    border-radius: 5px;
+    position: absolute;
+}
+
+.close_menu:hover div {
+    background-color: #3e3e3e;
+}
+
+.close_menu div:first-child {
+    transform: rotate(45deg);
+}
+
+.close_menu div:last-child {
+    transform: rotate(-45deg);
+}
+
+.close_menu:hover {
+    color: #ff5656;
+}
+
+.hamburger_menu {
+    position: fixed;
+    z-index: 9;
+    cursor: pointer;
+    right: 15px;
+    top: 15px;
+    padding: 10px;
+}
+
+.hamburger_menu div {
+    width: 36px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.hamburger_menu div:nth-child(2) {
+    margin: 9px 0;
+}
+
+#home {
+    position: relative;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgb(38, 49, 69) 100%), url(../images/glacier-bay-80643.jpg);
+/*    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(119, 143, 197, 0.5) 100%), url("../images/glacier-bay-80643.jpg");*/
+}
+
+.title {
+    color: #fff;
+    font-size: 3em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+#home .title {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#home > div {
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+}
+
+#home .arrow {
+    margin: auto;
+}
+
+.arrow {
+    height: var(--arrow-width);
+    width: var(--arrow-width);
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.arrow.bottom {
+    transform: rotate(45deg);
+    border-bottom-right-radius: 3px;
+    position: relative;
+    animation: arrow_animation 0.8s infinite;
+}
+
+
+@keyframes arrow_animation {
+    0% {
+        bottom: 0;
+    }
+
+    50% {
+        bottom: 10px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
