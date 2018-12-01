@@ -26,9 +26,17 @@ a {
 
 header {
     position: fixed;
+    width: 20vw;
+    min-width: 200px;
     z-index: 10;
 /*    background-color: #7cb4cd;*/
-    background-color: #84A4D1;
+/*    background-color: #84A4D1;*/
+/*    background-color: #5c87a4;*/
+/*    background-color: #017b9a;*/
+/*    background-color: #00667f;*/
+/*    background-color: #248fae;*/
+/*    background-color: #4ea0b8;*/
+    background-color: #428ca2;
     height: 100%;
     right: 0;
     transform: translateX(100%);
@@ -45,15 +53,20 @@ header ul {
 }
 
 header li {
+    padding: 3px 0;
     list-style: none;
-    padding: 6px 12vw 6px 0;
-    border-bottom: 1px solid #EDF1FC;
-
+/*    padding: 6px 12vw 6px 0;*/
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 header a {
     color: #fff;
-    font-size: 1.25em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 10px 0;
+    font-size: 0.9em;
+    display: block;
 }
 
 header a:hover {
@@ -83,9 +96,11 @@ header.open_menu {
     position: absolute;
 }
 
+/*
 .close_menu:hover div {
-    background-color: #3e3e3e;
+    background-color: #263145;
 }
+*/
 
 .close_menu div:first-child {
     transform: rotate(45deg);
@@ -93,10 +108,6 @@ header.open_menu {
 
 .close_menu div:last-child {
     transform: rotate(-45deg);
-}
-
-.close_menu:hover {
-    color: #ff5656;
 }
 
 .hamburger_menu {
@@ -125,7 +136,9 @@ header.open_menu {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgb(38, 49, 69) 100%), url(../images/glacier-bay-80643.jpg);
+/*    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgb(38, 49, 69) 100%), url(../images/glacier-bay-80643.jpg);*/
+    background-image: radial-gradient(circle, rgba(38, 49, 69, 0.6) 10%, rgba(38, 49, 69, 0.8) 100%), url(../images/alaska-inside-passage.jpg);  
+/*    background-image: radial-gradient(circle, rgba(6, 38, 73, 0.4) 0%, rgba(6, 38, 73, 0.9) 90%), url(../images/glacier-bay-80643.jpg);    */
 /*    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(119, 143, 197, 0.5) 100%), url("../images/glacier-bay-80643.jpg");*/
 }
 
@@ -142,6 +155,7 @@ header.open_menu {
     width: 100%;
     top: 50%;
     transform: translateY(-50%);
+    margin: 0;
 }
 
 #home > div {

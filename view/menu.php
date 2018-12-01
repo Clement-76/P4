@@ -18,9 +18,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
+                <li><a href="#">ACCUEIL</a></li>
+                <li><a href="#">BLOG</a></li>
+                <li><a href="#">À PROPOS</a></li>
+                <li><a href="#">ADMIN</a></li>
             </ul>
         </nav>
     </header>
@@ -32,3 +33,4 @@
         <div></div>
         <div></div>
     </div>
+    
