@@ -1,11 +1,9 @@
 <?php
-while ($data = $articles->fetch()) {
+while ($data = $article->fetch()) {
 ?>
 
-<article>
-    <h2><?= htmlspecialchars($data['title']) ?></h2>
-    <div><?= htmlspecialchars($data['content']) ?></div>
-</article>
+<h1><?= htmlspecialchars($data['title']) ?></h1>
+<div><?= htmlspecialchars($data['content']) ?></div>
 
 <?php
 }

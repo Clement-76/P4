@@ -10,5 +10,12 @@ function listArticles () {
     $articlesManager = new ClementPatigny\Model\ArticleManager();
     $articles = $articlesManager->getArticles();
     
+    require_once("view/articleSummary.php");
+}
+
+function viewArticle ($idArticle) {
+    $articlesManager = new ClementPatigny\Model\ArticleManager();
+    $article = $articlesManager->getArticle($idArticle);
+    
     require_once("view/article.php");
 }

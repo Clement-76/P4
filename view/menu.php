@@ -18,7 +18,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">ACCUEIL</a></li>
+                <li><a href="#home">ACCUEIL</a></li>
                 <li><a href="#">BLOG</a></li>
                 <li><a href="#">À PROPOS</a></li>
                 <li><a href="#">ADMIN</a></li>

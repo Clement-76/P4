@@ -8,10 +8,6 @@ body {
     margin: 0;
 }
 
-a {
-    text-decoration: none;
-}
-
 .overlay {
     position: fixed;
     z-index: 2;
@@ -19,7 +15,7 @@ a {
     top: 0;
     right: 0;
     left: 0;
-    background-color: rgba(38, 49, 69, 0.5);
+    background-color: rgba(38, 49, 69, 0.7);
     opacity: 0;
     display: none;
 }
@@ -39,7 +35,7 @@ header {
     background-color: #428ca2;
     height: 100%;
     right: 0;
-    transform: translateX(100%);
+    transform: translateX(101%);
     transition-duration: 0.5s;
     padding: 5px;
 }
@@ -67,6 +63,7 @@ header a {
     padding: 10px 0;
     font-size: 0.9em;
     display: block;
+    text-decoration: none;
 }
 
 header a:hover {
@@ -137,19 +134,24 @@ header.open_menu {
     background-size: cover;
     background-position: center;
 /*    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgb(38, 49, 69) 100%), url(../images/glacier-bay-80643.jpg);*/
-    background-image: radial-gradient(circle, rgba(38, 49, 69, 0.6) 10%, rgba(38, 49, 69, 0.8) 100%), url(../images/alaska-inside-passage.jpg);  
+    background-image: radial-gradient(circle, rgba(38, 49, 69, 0.7) 10%, rgba(38, 49, 69, 0.8) 100%), url(../images/alaska-inside-passage.jpg);  
 /*    background-image: radial-gradient(circle, rgba(6, 38, 73, 0.4) 0%, rgba(6, 38, 73, 0.9) 90%), url(../images/glacier-bay-80643.jpg);    */
 /*    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(119, 143, 197, 0.5) 100%), url("../images/glacier-bay-80643.jpg");*/
 }
 
 .title {
     color: #fff;
-    font-size: 3em;
+    font-size: 3.5em;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
+    margin: 0;
 }
 
-#home .title {
+#home h2.title {
+    font-size: 1.8em;
+}
+
+.center {
     position: absolute;
     text-align: center;
     width: 100%;
@@ -158,14 +160,14 @@ header.open_menu {
     margin: 0;
 }
 
-#home > div {
+.container_bottom {
     position: absolute;
     width: 100%;
     bottom: 30px;
 }
 
 #home .arrow {
-    margin: auto;
+    margin: 0 auto;
 }
 
 .arrow {
