@@ -180,6 +180,7 @@ header.open_menu {
     border-bottom-right-radius: 3px;
     position: relative;
     animation: arrow_animation 0.8s infinite;
+    cursor: pointer;
 }
 
 

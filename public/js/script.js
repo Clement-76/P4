@@ -18,4 +18,10 @@ $(function () {
             $(".overlay").hide(0);
         });
     });
+
+    $(".arrow.bottom").on("click", function () {
+        $("html, body").animate({
+            scrollTop: $("#home").height()
+        }, 1000);
+    });
 });
