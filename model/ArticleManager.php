@@ -2,9 +2,6 @@
 
 namespace ClementPatigny\Model;
 
-require_once("model/Manager.php");
-require_once("model/Article.php");
-
 class ArticleManager extends Manager {
     public function getArticles() {
         $db = $this->connectDb();

@@ -1,6 +1,10 @@
 <?php 
 
-require_once("controller/controller.php");
+require_once "Autoloader.php";
+use ClementPatigny\Autoloader;
+Autoloader::register();
+
+require_once "controller/controller.php";
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] == "viewArticle") {
