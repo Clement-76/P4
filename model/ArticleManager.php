@@ -37,7 +37,7 @@ class ArticleManager extends Manager {
             'creationDate' => $article['creation_date']
         ];
         
-        $article = new Article($articleFeatures);
-        return $article;
+        $articleObj = new Article($articleFeatures);
+        return $articleObj;
     }
 }

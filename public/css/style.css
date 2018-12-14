@@ -34,6 +34,7 @@ header {
 /*    background-color: #4ea0b8;*/
     background-color: #428ca2;
     height: 100%;
+    top: 0;
     right: 0;
     transform: translateX(101%);
     transition-duration: 0.5s;
@@ -121,6 +122,7 @@ header.open_menu {
     height: 4px;
     background-color: #fff;
     border-radius: 5px;
+    border: 1px solid #1e364e;
 }
 
 .hamburger_menu div:nth-child(2) {
