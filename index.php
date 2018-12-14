@@ -14,6 +14,8 @@ if (isset($_GET['action'])) {
         }
     } elseif ($_GET['action'] == "login") {
         login();
+    } elseif ($_GET['action'] == "logout") {
+        logout();
     }
 } else {
     listArticles();

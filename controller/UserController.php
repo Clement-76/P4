@@ -2,10 +2,6 @@
 
 use ClementPatigny\Model\UserManager;
 
-function viewAdminPanel() {
-    
-}
-
 function login() {
     $errors = false;
     
@@ -27,4 +23,12 @@ function login() {
     require_once "view/menu.php";
     require_once "view/login.php";
     require_once "view/script.html";
+}
+
+function logout() {
+    session_start();
+    $_SESSION = [];
+    session_destroy();
+    
+    header('Location: index.php');
 }
