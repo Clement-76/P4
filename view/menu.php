@@ -1,5 +1,3 @@
-<?php session_start() ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -21,11 +19,12 @@
         <nav>
             <ul>
                 <li><a href="index.php">ACCUEIL</a></li>
-                <li><a href="#">BLOG</a></li>
+                <li><a href="index.php?action=listArticles">BLOG</a></li>
                 <li><a href="#">À PROPOS</a></li>
                 <?php if (!isset($_SESSION['user'])): ?>
                     <li><a href="index.php?action=login">ADMIN</a></li>
                 <?php else: ?>
+                    <li><a href="index.php?action=viewAdminPanel">ADMINISTRATION</a></li>
                     <li><a href="index.php?action=logout">DECONNEXION</a></li>
                 <?php endif; ?>
             </ul>

@@ -5,10 +5,9 @@ use ClementPatigny\Model\ArticleManager;
 function listArticles() {
     $articlesManager = new ArticleManager();
     $articles = $articlesManager->getArticles();
-    $pageTitle = "Billet simple pour l'Alaska";
+    $pageTitle = "Blog - Jean Forteroche";
     
     require_once "view/menu.php";
-    require_once "view/home.html";
     require_once "view/articleSummary.php";
     require_once "view/script.html";
 }

@@ -1,6 +1,8 @@
 <?php
 
 use ClementPatigny\Model\UserManager;
+//use ClementPatigny\Model\ArticleManager;
+
 
 function login() {
     $errors = false;
@@ -26,9 +28,20 @@ function login() {
 }
 
 function logout() {
-    session_start();
     $_SESSION = [];
     session_destroy();
     
     header('Location: index.php');
+}
+
+function viewAdminPanel() {
+    if (isset($_SESSION['user'])) {
+        $pageTitle = "Administration";
+        
+        require_once "view/menu.php";
+        require_once "view/admin.php";
+        listArticles();
+    } else {
+        header('HTTP/1.0 403 Forbidden');
+    }
 }
