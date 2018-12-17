@@ -11,7 +11,7 @@
 
 <body>
 
-    <header>
+    <aside>
         <div class="close_menu">
             <div></div>
             <div></div>
@@ -19,7 +19,7 @@
         <nav>
             <ul>
                 <li><a href="index.php">ACCUEIL</a></li>
-                <li><a href="index.php?action=listArticles">BLOG</a></li>
+                <li><a href="index.php?action=listPosts">BLOG</a></li>
                 <li><a href="#">À PROPOS</a></li>
                 <?php if (!isset($_SESSION['user'])): ?>
                     <li><a href="index.php?action=login">ADMIN</a></li>
@@ -29,7 +29,7 @@
                 <?php endif; ?>
             </ul>
         </nav>
-    </header>
+    </aside>
     
     <div class="overlay"></div>
 

@@ -6,24 +6,30 @@ require_once "Autoloader.php";
 use ClementPatigny\Autoloader;
 Autoloader::register();
 
-require_once "controller/HomeController.php";
-require_once "controller/ArticleController.php";
-require_once "controller/UserController.php";
+use ClementPatigny\Controller\PostsController;
+use ClementPatigny\Controller\HomeController;
+use ClementPatigny\Controller\UserController;
 
 if (isset($_GET['action'])) {
-    if ($_GET['action'] == "listArticles") {
-        listArticles();
-    } elseif ($_GET['action'] == "viewArticle") {
+    if ($_GET['action'] == "listPosts") {
+        $controller = new PostsController();
+        $controller->listPosts();
+    } elseif ($_GET['action'] == "viewPost") {
         if (isset($_GET['id'])) {
-            viewArticle($_GET['id']);
+            $controller = new PostsController();
+            $controller->viewPost($_GET['id']);
         }
     } elseif ($_GET['action'] == "login") {
-        login();
+        $controller = new UserController(new PostsController);
+        $controller->login();
     } elseif ($_GET['action'] == "logout") {
-        logout();
+        $controller = new UserController(new PostsController);
+        $controller->logout();
     } elseif ($_GET['action'] == "viewAdminPanel") {
-        viewAdminPanel();
+        $controller = new UserController(new PostsController);
+        $controller->viewAdminPanel();
     }
 } else {
-    viewHome();
+    $controller = new HomeController();
+    $controller->viewHome();
 }

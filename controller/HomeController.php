@@ -1,9 +1,14 @@
 <?php
 
-function viewHome() {
-    $pageTitle = "Accueil - Jean Forteroche";
+namespace ClementPatigny\Controller;
+
+class HomeController {
     
-    require_once "view/menu.php";
-    require_once "view/home.html";
-    require_once "view/script.html";
+    public function viewHome() {
+        $pageTitle = "Accueil - Jean Forteroche";
+
+        require_once "view/menu.php";
+        require_once "view/home.html";
+        require_once "view/script.html";
+    }
 }

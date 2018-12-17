@@ -20,7 +20,7 @@ body {
     display: none;
 }
 
-header {
+aside {
     position: fixed;
     width: 20vw;
     min-width: 200px;
@@ -41,22 +41,22 @@ header {
     padding: 5px;
 }
 
-header nav {
+aside nav {
     padding: 0 25px;
 }
 
-header ul {
+aside ul {
     padding-left: 0;
 }
 
-header li {
+aside li {
     padding: 3px 0;
     list-style: none;
 /*    padding: 6px 12vw 6px 0;*/
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-header a {
+aside a {
     color: #fff;
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
@@ -67,11 +67,11 @@ header a {
     text-decoration: none;
 }
 
-header a:hover {
+aside a:hover {
     color: #fff;
 }
 
-header.open_menu {
+aside.open_menu {
     transform: translateX(0);
 }
 

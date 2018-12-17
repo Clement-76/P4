@@ -1,6 +1,6 @@
 $(function () {
     $(".hamburger_menu").on("click", function () {
-        $("header").addClass("open_menu");
+        $("aside").addClass("open_menu");
 
         $(".overlay").show(0, function () {
             $(".overlay").animate({
@@ -10,7 +10,7 @@ $(function () {
     });
 
     $(".close_menu, .overlay").on("click", function () {
-        $("header").removeClass("open_menu");
+        $("aside").removeClass("open_menu");
 
         $(".overlay").animate({
             opacity: 0

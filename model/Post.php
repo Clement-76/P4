@@ -2,19 +2,19 @@
 
 namespace ClementPatigny\Model;
 
-class Article {
+class Post {
     private $_id;
     private $_title;
     private $_content;
     private $_creationDate;
     private $_autor;
     
-    public function __construct(array $article) {
-        $this->hydrate($article);
+    public function __construct(array $post) {
+        $this->hydrate($post);
     }
     
-    public function hydrate($article) {
-        foreach($article as $key => $value) {
+    public function hydrate($post) {
+        foreach($post as $key => $value) {
             $setter = 'set' . ucfirst($key);
             if (method_exists($this, $setter)) {
                 $this->$setter($value);
