@@ -15,6 +15,20 @@ class PostsController {
         require_once "view/postSummary.php";
         require_once "view/script.html";
     }
+    
+    public function listPostsAdmin() {
+        if (isset($_SESSION['user'])) {
+            $postsManager = new PostsManager();
+            $posts = $postsManager->getPosts();
+            $pageTitle = "Administration";
+
+            require_once "view/menu.php";
+            require_once "view/postsAdmin.php";
+            require_once "view/script.html";
+        } else {
+            header('HTTP/1.0 403 Forbidden');
+        }
+    }
 
     public function getSummary($content) {
         $words = explode(" ", $content);
@@ -35,13 +49,15 @@ class PostsController {
         return $summary;
     }
 
-    public function viewPost($idPost) {
-        $postsManager = new PostsManager();
-        $post = $postsManager->getPost($idPost);
-        $pageTitle = $post->getTitle();
+    public function viewPost() {
+        if (isset($_GET['id'])) {
+            $postsManager = new PostsManager();
+            $post = $postsManager->getPost($_GET['id']);
+            $pageTitle = $post->getTitle();
 
-        require_once "view/menu.php";
-        require_once "view/post.php";
-        require_once "view/script.html";
+            require_once "view/menu.php";
+            require_once "view/post.php";
+            require_once "view/script.html";
+        }
     }
 }

@@ -15,19 +15,17 @@ if (isset($_GET['action'])) {
         $controller = new PostsController();
         $controller->listPosts();
     } elseif ($_GET['action'] == "viewPost") {
-        if (isset($_GET['id'])) {
-            $controller = new PostsController();
-            $controller->viewPost($_GET['id']);
-        }
+        $controller = new PostsController();
+        $controller->viewPost();
     } elseif ($_GET['action'] == "login") {
-        $controller = new UserController(new PostsController);
+        $controller = new UserController();
         $controller->login();
     } elseif ($_GET['action'] == "logout") {
-        $controller = new UserController(new PostsController);
+        $controller = new UserController();
         $controller->logout();
-    } elseif ($_GET['action'] == "viewAdminPanel") {
-        $controller = new UserController(new PostsController);
-        $controller->viewAdminPanel();
+    } elseif ($_GET['action'] == "listPostsAdmin") {
+        $controller = new PostsController();
+        $controller->listPostsAdmin();
     }
 } else {
     $controller = new HomeController();

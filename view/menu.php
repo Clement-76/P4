@@ -24,7 +24,7 @@
                 <?php if (!isset($_SESSION['user'])): ?>
                     <li><a href="index.php?action=login">ADMIN</a></li>
                 <?php else: ?>
-                    <li><a href="index.php?action=viewAdminPanel">ADMINISTRATION</a></li>
+                    <li><a href="index.php?action=listPostsAdmin">ADMINISTRATION</a></li>
                     <li><a href="index.php?action=logout">DECONNEXION</a></li>
                 <?php endif; ?>
             </ul>

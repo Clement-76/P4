@@ -13,7 +13,7 @@ class PostsManager extends Manager {
                 'content' => $post['content'],
                 'title' => $post['title'],
                 'id' => $post['id'],
-                'autor' => $post['autor'],
+                'author' => $post['author'],
                 'creationDate' => $post['creation_date']
             ];
             
@@ -33,7 +33,7 @@ class PostsManager extends Manager {
             'content' => $post['content'],
             'title' => $post['title'],
             'id' => $post['id'],
-            'autor' => $post['autor'],
+            'author' => $post['author'],
             'creationDate' => $post['creation_date']
         ];
         

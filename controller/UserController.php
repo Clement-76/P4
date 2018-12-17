@@ -5,17 +5,7 @@ namespace ClementPatigny\Controller;
 use ClementPatigny\Model\UserManager;
 
 class UserController {
-    
-    private $_postsController;
-    
-    public function __construct(PostsController $postsController) {
-        $this->setPostsController($postsController);
-    }
-    
-    public function setPostsController($postsController) {
-        $this->_postsController = $postsController;
-    }
-    
+
     public function login() {
         $errors = false;
 
@@ -44,17 +34,5 @@ class UserController {
         session_destroy();
 
         header('Location: index.php');
-    }
-
-    public function viewAdminPanel() {
-        if (isset($_SESSION['user'])) {
-            $pageTitle = "Administration";
-
-            require_once "view/menu.php";
-            require_once "view/admin.php";
-            $this->_postsController->listPosts();
-        } else {
-            header('HTTP/1.0 403 Forbidden');
-        }
     }
 }

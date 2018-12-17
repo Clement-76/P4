@@ -7,7 +7,7 @@ class Post {
     private $_title;
     private $_content;
     private $_creationDate;
-    private $_autor;
+    private $_author;
     
     public function __construct(array $post) {
         $this->hydrate($post);
@@ -38,9 +38,9 @@ class Post {
         $this->_id = (int) $id;
     }    
     
-    public function setAutor($autor) {
-        if (is_string($autor)) {
-            $this->_autor = $autor;
+    public function setAuthor($author) {
+        if (is_string($author)) {
+            $this->_author = $author;
         }
     }    
     
@@ -60,8 +60,8 @@ class Post {
         return $this->_id;
     }    
     
-    public function getAutor() {
-        return htmlspecialchars($this->_autor);
+    public function getAuthor() {
+        return htmlspecialchars($this->_author);
     }    
     
     public function getCreationDate() {
