@@ -6,28 +6,26 @@ require_once "Autoloader.php";
 use ClementPatigny\Autoloader;
 Autoloader::register();
 
-use ClementPatigny\Controller\PostsController;
-use ClementPatigny\Controller\HomeController;
-use ClementPatigny\Controller\UserController;
+$namespace = 'ClementPatigny\Controller\\';
 
-if (isset($_GET['action'])) {
-    if ($_GET['action'] == "listPosts") {
-        $controller = new PostsController();
-        $controller->listPosts();
-    } elseif ($_GET['action'] == "viewPost") {
-        $controller = new PostsController();
-        $controller->viewPost();
-    } elseif ($_GET['action'] == "login") {
-        $controller = new UserController();
-        $controller->login();
-    } elseif ($_GET['action'] == "logout") {
-        $controller = new UserController();
-        $controller->logout();
-    } elseif ($_GET['action'] == "listPostsAdmin") {
-        $controller = new PostsController();
-        $controller->listPostsAdmin();
+if (isset($_GET['action']) && !empty($_GET['action'])) {
+    $action = $_GET['action'];
+    
+    if (in_array($action, ['listPosts', 'listPostsAdmin', 'viewPost'])) {
+        $controller = $namespace . 'PostsController';
+    } elseif (in_array($action, ['login', 'logout'])) {
+        $controller = $namespace . 'UserController';
+    } else {
+        header("HTTP/1.0 404 Not Found");
+        exit;
     }
 } else {
-    $controller = new HomeController();
-    $controller->viewHome();
+    $action = 'viewHome';
+    $controller = $namespace . 'HomeController';
 }
+
+$controller = new $controller();
+$controller->$action();
+
+
+

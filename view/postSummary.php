@@ -5,7 +5,7 @@
     <div><?= $this->getSummary($post->getContent()) ?></div>
     <a href="index.php?action=viewPost&id=<?= $post->getId() ?>">Voir l'article</a>
     <div>
-        Publié par <a href="index.php?action=viewAutor"><?= $post->getAutor() ?></a>
+        Publié par <a href="index.php?action=viewAutor"><?= $post->getAuthor() ?></a>
         le <time datetime="<?= $post->getCreationDate()->format('Y-m-d') ?>"><?= $post->getCreationDate()->format('d/m/Y') ?></time>
     </div>
 </article>
