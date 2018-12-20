@@ -3,6 +3,7 @@
 namespace ClementPatigny\Controller;
 
 use ClementPatigny\Model\PostsManager;
+use ClementPatigny\Model\Post;
 
 class PostsController {
     
@@ -26,7 +27,7 @@ class PostsController {
             require_once "view/postsAdmin.php";
             require_once "view/script.html";
         } else {
-            header('HTTP/1.0 403 Forbidden');
+            header('Location: index.php?action=login');
         }
     }
 
@@ -58,6 +59,50 @@ class PostsController {
             require_once "view/menu.php";
             require_once "view/post.php";
             require_once "view/script.html";
+        }
+    }
+    
+    public function addPost() {
+        if (isset($_SESSION['user'])) {
+            $errors['errors'] = false;
+    
+            if (isset($_POST['post_title']) && isset($_POST['post_content'])) {
+                if (empty($_POST['post_title'])) {
+                    $errors['errors'] = true;
+                    $errors['post_title'] = true;
+                }
+                
+                if (empty($_POST['post_content'])) {
+                    $errors['errors'] = true;
+                    $errors['post_content'] = true;
+                }
+                
+                if (!$errors['errors']) {
+                    $postFeatures = [
+                        'content' => $_POST['post_content'],
+                        'title' => $_POST['post_title'],
+                        'author' => $_SESSION['user']->getLogin()
+                        // Instancier sans l'id et sans la date de creation ?
+                        // car je ne peux pas les connaitre à l'avance
+                    ];
+                    
+                    $post = new Post($postFeatures);
+                    
+                    $postManager = new PostsManager();
+                    $postManager->addPost($post);
+                }
+            } else {
+                $errors['errors'] = true;
+            }
+
+            $pageTitle = "Ajouter un nouvel article";
+
+            require_once "view/menu.php";
+            require_once "view/newPost.php";
+            require_once "view/script.html";
+        } else {
+            header('Location: index.php?action=login');
+            exit;
         }
     }
 }

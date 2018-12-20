@@ -40,4 +40,10 @@ class PostsManager extends Manager {
         $postObj = new Post($postFeatures);
         return $postObj;
     }
+    
+    public function addPost(Post $post) {
+        $db = $this->connectDb();
+        $q = $db->prepare('INSERT INTO posts(title, content) VALUE(?, ?)');
+        $q->execute([$post->getTitle(), $post->getContent()]);
+    }
 }

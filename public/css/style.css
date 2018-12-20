@@ -201,3 +201,8 @@ aside.open_menu {
         bottom: 0;
     }
 }
+
+/* the tinyMCE word counter */
+.mce-wordcount.mce-widget.mce-label.mce-flow-layout-item {
+    margin-right: 10px;
+}

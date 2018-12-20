@@ -14,9 +14,8 @@ class UserController {
             $user = $userManager->getUser($_POST['user_login']);
 
             if (password_verify($_POST['user_password'], $user->getPassword())) {
-                session_start();
                 $_SESSION['user'] = $user;
-                header('Location: index.php');
+                header('Location: index.php?action=listPostsAdmin');
             } else {
                 $errors = true;
             }

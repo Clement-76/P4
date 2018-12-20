@@ -7,7 +7,9 @@
         <label for="user_password">Mot de passe</label><br>
         <input id="user_password" type="password" name="user_password" required>
     </p>
-    <input type="submit">
+    <p>
+        <input type="submit">
+    </p>
     
     <?php if ($errors): ?>
         <p>Identifiant ou mot de passe incorrect</p>

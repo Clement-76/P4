@@ -1,17 +1,17 @@
 <?php 
 
-session_start();
-
 require_once "Autoloader.php";
 use ClementPatigny\Autoloader;
 Autoloader::register();
+
+session_start();
 
 $namespace = 'ClementPatigny\Controller\\';
 
 if (isset($_GET['action']) && !empty($_GET['action'])) {
     $action = $_GET['action'];
     
-    if (in_array($action, ['listPosts', 'listPostsAdmin', 'viewPost'])) {
+    if (in_array($action, ['listPosts', 'listPostsAdmin', 'viewPost', 'addPost'])) {
         $controller = $namespace . 'PostsController';
     } elseif (in_array($action, ['login', 'logout'])) {
         $controller = $namespace . 'UserController';

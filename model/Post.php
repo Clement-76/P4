@@ -49,11 +49,11 @@ class Post {
     }
 
     public function getContent() {
-        return htmlspecialchars($this->_content);
+        return $this->_content;
     }
     
     public function getTitle() {
-        return htmlspecialchars($this->_title);
+        return $this->_title;
     }    
     
     public function getId() {
@@ -61,14 +61,10 @@ class Post {
     }    
     
     public function getAuthor() {
-        return htmlspecialchars($this->_author);
+        return $this->_author;
     }    
     
     public function getCreationDate() {
         return $this->_creationDate;
-    }
-    
-    public function getSummary() {
-        return htmlspecialchars($this->_summary);
     }
 }
