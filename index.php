@@ -11,7 +11,7 @@ $namespace = 'ClementPatigny\Controller\\';
 if (isset($_GET['action']) && !empty($_GET['action'])) {
     $action = $_GET['action'];
     
-    if (in_array($action, ['listPosts', 'listPostsAdmin', 'viewPost', 'addPost'])) {
+    if (in_array($action, ['listPosts', 'listPostsAdmin', 'viewPost', 'addPost', 'editPost'])) {
         $controller = $namespace . 'PostsController';
     } elseif (in_array($action, ['login', 'logout'])) {
         $controller = $namespace . 'UserController';
@@ -21,7 +21,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
     }
 } else {
     $action = 'viewHome';
-    $controller = $namespace . 'HomeController';
+    $controller = $namespace . 'defaultController';
 }
 
 $controller = new $controller();

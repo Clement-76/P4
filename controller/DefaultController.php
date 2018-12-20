@@ -2,7 +2,7 @@
 
 namespace ClementPatigny\Controller;
 
-class HomeController {
+class defaultController {
     
     public function viewHome() {
         $pageTitle = "Accueil - Jean Forteroche";

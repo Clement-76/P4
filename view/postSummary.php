@@ -2,7 +2,7 @@
 
 <article>
     <h2><?= $post->getTitle() ?></h2>
-    <div><?= $this->getSummary($post->getContent()) ?></div>
+    <div><?= $this->getSummary(strip_tags($post->getContent())) ?></div>
     <a href="index.php?action=viewPost&id=<?= $post->getId() ?>">Voir l'article</a>
     <div>
         Publié par <a href="index.php?action=viewAutor"><?= $post->getAuthor() ?></a>

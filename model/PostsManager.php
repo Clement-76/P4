@@ -23,10 +23,10 @@ class PostsManager extends Manager {
         return $posts;
     }
     
-    public function getPost($idPost) {
+    public function getPost($postId) {
         $db = $this->connectDb();
         $q = $db->prepare("SELECT * FROM posts WHERE id = ?");
-        $q->execute(array($idPost));
+        $q->execute(array($postId));
         $post = $q->fetch();
 
         $postFeatures = [
@@ -45,5 +45,11 @@ class PostsManager extends Manager {
         $db = $this->connectDb();
         $q = $db->prepare('INSERT INTO posts(title, content) VALUE(?, ?)');
         $q->execute([$post->getTitle(), $post->getContent()]);
+    }
+    
+    public function editPost($title, $content, $postId) {
+        $db = $this->connectDb();
+        $q = $db->prepare('UPDATE posts SET title = ?, content = ? WHERE id = ?');
+        $q->execute([$title, $content, $postId]);
     }
 }
