@@ -17,7 +17,7 @@
                 <td><?= $post->getAuthor() ?></td>
                 <td><?= $post->getCreationDate()->format('d/m/Y') ?></td>
                 <td><a href="index.php?action=editPost&id=<?= $post->getId() ?>">Modifier</a></td>
-                <td><a href="index.php?action=deletePost&id=<?= $post->getId() ?>">Supprimer</a></td>
+                <td><a href="index.php?action=deletePost&id=<?= $post->getId() ?>" class="delete">Supprimer</a></td>
             </tr>
         <?php endforeach; ?>
     </tbody>

@@ -52,4 +52,10 @@ class PostsManager extends Manager {
         $q = $db->prepare('UPDATE posts SET title = ?, content = ? WHERE id = ?');
         $q->execute([$title, $content, $postId]);
     }
+        
+    public function deletePost($postId) {
+        $db = $this->connectDb();
+        $q = $db->prepare('DELETE FROM posts WHERE id = ?');
+        $q->execute([$postId]);
+    }
 }
