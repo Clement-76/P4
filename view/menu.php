@@ -19,7 +19,6 @@
         <nav>
             <ul>
                 <li><a href="index.php">ACCUEIL</a></li>
-                <li><a href="index.php?action=listPosts">BLOG</a></li>
                 <li><a href="#">À PROPOS</a></li>
                 <?php if (!isset($_SESSION['user'])): ?>
                     <li><a href="index.php?action=login">ADMIN</a></li>

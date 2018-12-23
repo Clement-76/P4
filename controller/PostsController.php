@@ -13,6 +13,7 @@ class PostsController {
         $pageTitle = "Blog - Jean Forteroche";
 
         require_once "view/menu.php";
+        require_once "view/home.html";
         require_once "view/postSummary.php";
         require_once "view/script.html";
     }

@@ -5,7 +5,7 @@ namespace ClementPatigny\Model;
 class PostsManager extends Manager {
     public function getPosts() {
         $db = $this->connectDb();
-        $q = $db->query("SELECT * FROM posts ORDER BY creation_date DESC");
+        $q = $db->query("SELECT * FROM posts INNER JOIN users ON posts.author_id = users.id ORDER BY creation_date DESC");
         $posts = [];
         
         while ($post = $q->fetch()) {
@@ -13,7 +13,7 @@ class PostsManager extends Manager {
                 'content' => $post['content'],
                 'title' => $post['title'],
                 'id' => $post['id'],
-                'author' => $post['author'],
+                'author' => $post['user_pseudo'],
                 'creationDate' => $post['creation_date']
             ];
             
@@ -25,15 +25,15 @@ class PostsManager extends Manager {
     
     public function getPost($postId) {
         $db = $this->connectDb();
-        $q = $db->prepare("SELECT * FROM posts WHERE id = ?");
-        $q->execute(array($postId));
+        $q = $db->prepare("SELECT * FROM posts INNER JOIN users ON posts.author_id = users.id WHERE posts.id = ?");
+        $q->execute([$postId]);
         $post = $q->fetch();
 
         $postFeatures = [
             'content' => $post['content'],
             'title' => $post['title'],
             'id' => $post['id'],
-            'author' => $post['author'],
+            'author' => $post['user_pseudo'],
             'creationDate' => $post['creation_date']
         ];
         
