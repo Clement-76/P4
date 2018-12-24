@@ -5,9 +5,12 @@ namespace ClementPatigny\Controller;
 use ClementPatigny\Model\CommentsManager;
 
 class CommentsController {
-    public function listComments() {
-        
-    }
+//    public function listComments() {
+//        $commentsManager = new CommentsManager();
+//        $comments = $commentsManager->getComments();
+//
+//        require_once "view/comment.php";
+//    }
     
     public function addComment() {
         $errors['errors'] = false;

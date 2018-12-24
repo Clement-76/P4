@@ -5,7 +5,7 @@ namespace ClementPatigny\Model;
 class PostsManager extends Manager {
     public function getPosts() {
         $db = $this->connectDb();
-        $q = $db->query("SELECT * FROM posts INNER JOIN users ON posts.author_id = users.id ORDER BY creation_date DESC");
+        $q = $db->query("SELECT posts.id, title, content, user_pseudo, creation_date FROM posts INNER JOIN users ON posts.author_id = users.id ORDER BY creation_date DESC");
         $posts = [];
         
         while ($post = $q->fetch()) {

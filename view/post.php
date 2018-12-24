@@ -9,9 +9,3 @@
     <input type="hidden" name="post_id" value="<?= $post->getId() ?>">
     <input type="submit" value="Poster">
 </form>
-
-<!--
-<div class="comments">
-    
-</div>
--->

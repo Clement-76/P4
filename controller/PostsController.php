@@ -3,6 +3,7 @@
 namespace ClementPatigny\Controller;
 
 use ClementPatigny\Model\PostsManager;
+use ClementPatigny\Model\CommentsManager;
 use ClementPatigny\Model\Post;
 
 class PostsController {
@@ -52,13 +53,17 @@ class PostsController {
     }
 
     public function viewPost() {
-        if (isset($_GET['id'])) {
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
             $postsManager = new PostsManager();
             $post = $postsManager->getPost($_GET['id']);
             $pageTitle = $post->getTitle();
-
+            
+            $commentsManager = new CommentsManager();
+            $comments = $commentsManager->getComments($_GET['id']);
+            
             require_once "view/menu.php";
             require_once "view/post.php";
+            require_once "view/comment.php";
             require_once "view/script.html";
         }
     }

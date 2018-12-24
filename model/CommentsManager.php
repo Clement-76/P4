@@ -3,10 +3,25 @@
 namespace ClementPatigny\Model;
 
 class CommentsManager extends Manager {
-    public function getComments() {
+    public function getComments($postId) {
         $db = $this->connectDb();
-        $q = $db->prepare('');
-        $q->execute();
+        $q = $db->prepare('SELECT comments.id, comments.content, comments.creation_date, nb_reports, author FROM comments INNER JOIN posts ON comments.post_id = posts.id WHERE comments.post_id = ?');
+        $q->execute([$postId]);
+        
+        while ($comment = $q->fetch()) {
+            
+            $commentFeatures = [
+                'content' => $comment['content'],
+                'author' => $comment['author'],
+                'id' => $comment['id'],
+                'nbReports' => $comment['nb_reports'],
+                'creationDate' => $comment['creation_date']
+            ];
+            
+            $comments[] = new Comment($commentFeatures);
+        }
+        
+        return $comments;
     }
     
     public function addComment($pseudo, $comment, $postId) {
