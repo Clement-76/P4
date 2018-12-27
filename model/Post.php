@@ -64,7 +64,7 @@ class Post {
         return $this->_author;
     }    
     
-    public function getCreationDate() {
-        return $this->_creationDate;
+    public function getCreationDate($format) {
+        return $this->_creationDate->format($format);
     }
 }

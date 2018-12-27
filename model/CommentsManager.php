@@ -5,11 +5,11 @@ namespace ClementPatigny\Model;
 class CommentsManager extends Manager {
     public function getComments($postId) {
         $db = $this->connectDb();
-        $q = $db->prepare('SELECT comments.id, comments.content, comments.creation_date, nb_reports, author FROM comments INNER JOIN posts ON comments.post_id = posts.id WHERE comments.post_id = ?');
+        $q = $db->prepare('SELECT comments.id, comments.content, comments.creation_date, nb_reports, author FROM comments INNER JOIN posts ON comments.post_id = posts.id WHERE comments.post_id = ? ORDER BY creation_date DESC');
         $q->execute([$postId]);
+        $comments = [];
         
         while ($comment = $q->fetch()) {
-            
             $commentFeatures = [
                 'content' => $comment['content'],
                 'author' => $comment['author'],
@@ -33,16 +33,25 @@ class CommentsManager extends Manager {
         $q->execute();
     }
     
-    public function deleteComment() {
+    public function deleteComment($commentId) {
         $db = $this->connectDb();
-        $q = $db->prepare('');
-        $q->execute();
+        $q = $db->prepare('DELETE FROM comments WHERE id = ?');
+        $q->execute([$commentId]);
     }
     
-    
-    public function reportComment() {
+    public function updateNbReportsComment($commentId) {
         $db = $this->connectDb();
-        $q = $db->prepare('');
-        $q->execute();
+        $q = $db->prepare('UPDATE comments SET nb_reports = nb_reports + 1 WHERE id = ?');
+        $q->execute([$commentId]);
+    }
+    
+    public function getNbCommentLines($commentId) {
+        $db = $this->connectDb();
+        $q = $db->prepare('SELECT COUNT(*) FROM comments WHERE id = ?');
+        $q->execute([$commentId]);
+        $data = $q->fetch();
+        $nbLines = $data['COUNT(*)'];
+        
+        return $nbLines;
     }
 }

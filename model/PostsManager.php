@@ -47,7 +47,7 @@ class PostsManager extends Manager {
         $q->execute([$post->getTitle(), $post->getContent()]);
     }
     
-    public function editPost($title, $content, $postId) {
+    public function updatePost($title, $content, $postId) {
         $db = $this->connectDb();
         $q = $db->prepare('UPDATE posts SET title = ?, content = ? WHERE id = ?');
         $q->execute([$title, $content, $postId]);

@@ -133,7 +133,7 @@ class PostsController {
                     }
 
                     if (!$errors['errors']) {
-                        $postsManager->editPost($_POST['post_title'], $_POST['post_content'], $_GET['id']);
+                        $postsManager->updatePost($_POST['post_title'], $_POST['post_content'], $_GET['id']);
 
                         header('Location: index.php?action=listPostsAdmin');
                         exit;

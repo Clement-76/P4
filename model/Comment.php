@@ -40,7 +40,7 @@ class Comment {
     }
     
     public function setCreationDate($creationDate) {
-        $this->_creationDate = $creationDate;
+        $this->_creationDate = new \datetime($creationDate);
     }
     
     public function getAuthor() {
@@ -59,7 +59,7 @@ class Comment {
         return $this->_nbReports;
     }
     
-    public function getCreationDate() {
-        return $this->_creationDate;
+    public function getCreationDate($format) {
+        return $this->_creationDate->format($format);
     }
 }
