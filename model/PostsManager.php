@@ -2,6 +2,8 @@
 
 namespace ClementPatigny\Model;
 
+use ClementPatigny\Model\CommentsManager;
+
 class PostsManager extends Manager {
     public function getPosts() {
         $db = $this->connectDb();
@@ -9,10 +11,14 @@ class PostsManager extends Manager {
         $posts = [];
         
         while ($post = $q->fetch()) {
+            $commentsManager = new CommentsManager();
+            $nbComments = $commentsManager->getNbPostComments($post['id']);
+            
             $postFeatures = [
                 'content' => $post['content'],
                 'title' => $post['title'],
                 'id' => $post['id'],
+                'nbComments' => $nbComments['nb_comments'],
                 'author' => $post['user_pseudo'],
                 'creationDate' => $post['creation_date']
             ];

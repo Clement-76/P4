@@ -8,6 +8,7 @@
         <div>
             Publié par <a href="index.php?action=viewAutor"><?= $post->getAuthor() ?></a>
             le <time datetime="<?= $post->getCreationDate('Y-m-d') ?>"><?= $post->getCreationDate('d/m/Y') ?></time>
+            <span><i class="fas fa-comment"></i> <?= $post->getNbComments() ?></span>
         </div>
     </article>
 

@@ -6,6 +6,7 @@
         <tr>
             <th>Titre</th>
             <th>Auteur</th>
+            <th>Commentaires</th>
             <th>Date</th>
             <th colspan="2">Actions</th>
         </tr>
@@ -15,6 +16,7 @@
             <tr>
                 <td><?= $post->getTitle() ?></td>
                 <td><?= $post->getAuthor() ?></td>
+                <td><a href="index.php?action=listCommentsAdmin&id=<?= $post->getId() ?>"><?= $post->getNbComments() ?></a> <i class="fas fa-comment"></i></td>
                 <td><?= $post->getCreationDate('d/m/Y') ?></td>
                 <td><a href="index.php?action=editPost&id=<?= $post->getId() ?>">Modifier</a></td>
                 <td><a href="index.php?action=deletePost&id=<?= $post->getId() ?>" class="delete">Supprimer</a></td>

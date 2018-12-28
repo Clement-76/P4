@@ -24,6 +24,15 @@ class CommentsManager extends Manager {
         return $comments;
     }
     
+    public function getNbPostComments($postId) {
+        $db = $this->connectDb();
+        $q = $db->prepare('SELECT COUNT(*) AS nb_comments FROM comments WHERE post_id = ?');
+        $q->execute([$postId]);
+        $nbComments = $q->fetch();
+        
+        return $nbComments;
+    }
+    
     public function addComment($pseudo, $comment, $postId) {
         $db = $this->connectDb();
         $q = $db->prepare('INSERT INTO comments(author, content, post_id) VALUES(:pseudo, :comment, :postId)');

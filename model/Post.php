@@ -7,6 +7,7 @@ class Post {
     private $_title;
     private $_content;
     private $_creationDate;
+    private $_nbComments;
     private $_author;
     
     public function __construct(array $post) {
@@ -42,6 +43,10 @@ class Post {
         if (is_string($author)) {
             $this->_author = $author;
         }
+    }        
+    
+    public function setNbComments($nbComments) {
+        $this->_nbComments = (int) $nbComments;
     }    
     
     public function setCreationDate($creationDate) {
@@ -66,5 +71,9 @@ class Post {
     
     public function getCreationDate($format) {
         return $this->_creationDate->format($format);
+    }
+    
+    public function getNbComments() {
+        return $this->_nbComments;
     }
 }

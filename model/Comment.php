@@ -44,11 +44,11 @@ class Comment {
     }
     
     public function getAuthor() {
-        return $this->_author;
+        return htmlspecialchars($this->_author);
     }
     
     public function getContent() {
-        return $this->_content;
+        return htmlspecialchars($this->_content);
     }
         
     public function getId() {
