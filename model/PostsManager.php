@@ -25,7 +25,7 @@ class PostsManager extends Manager {
     
     public function getPost($postId) {
         $db = $this->connectDb();
-        $q = $db->prepare("SELECT * FROM posts INNER JOIN users ON posts.author_id = users.id WHERE posts.id = ?");
+        $q = $db->prepare("SELECT posts.*, users.user_pseudo FROM posts INNER JOIN users ON posts.author_id = users.id WHERE posts.id = ?");
         $q->execute([$postId]);
         $post = $q->fetch();
 
@@ -56,6 +56,16 @@ class PostsManager extends Manager {
     public function deletePost($postId) {
         $db = $this->connectDb();
         $q = $db->prepare('DELETE FROM posts WHERE id = ?');
+        $affectedLines = $q->execute([$postId]);
+    }
+    
+    public function getNbPostLines($postId) {
+        $db = $this->connectDb();
+        $q = $db->prepare('SELECT COUNT(*) AS nb_lines FROM posts WHERE id = ?');
         $q->execute([$postId]);
+        $data = $q->fetch();
+        $nbLines = $data['nb_lines'];
+        
+        return $nbLines;
     }
 }

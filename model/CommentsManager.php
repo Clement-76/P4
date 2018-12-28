@@ -47,10 +47,10 @@ class CommentsManager extends Manager {
     
     public function getNbCommentLines($commentId) {
         $db = $this->connectDb();
-        $q = $db->prepare('SELECT COUNT(*) FROM comments WHERE id = ?');
+        $q = $db->prepare('SELECT COUNT(*) AS nb_lines FROM comments WHERE id = ?');
         $q->execute([$commentId]);
         $data = $q->fetch();
-        $nbLines = $data['COUNT(*)'];
+        $nbLines = $data['nb_lines'];
         
         return $nbLines;
     }

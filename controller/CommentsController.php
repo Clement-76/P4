@@ -3,38 +3,58 @@
 namespace ClementPatigny\Controller;
 
 use ClementPatigny\Model\CommentsManager;
+use ClementPatigny\Model\PostsManager;
 
 class CommentsController {
     
     public function addComment() {
-        // verifier si le post existe
-        $errors['errors'] = false;
+        $errors = false;
         
         if (!isset($_POST['comment']) || empty($_POST['comment'])) {
-            $errors['errors'] = true;
-            $errors['comment'] = true;
+            $errors = true;
         }
         
         if (!isset($_POST['pseudo']) || empty($_POST['pseudo'])) {
-            $errors['errors'] = true;
-            $errors['pseudo'] = true;
+            $errors = true;
         }
         
         if (!isset($_POST['post_id']) || empty($_POST['post_id'])) {
-            $errors['errors'] = true;
-            $errors['post_id'] = true;
+            $errors = true;
+        } else {
+            $postsManager = new PostsManager();
+            $nbLines = $postsManager->getNbPostLines($_POST['post_id']);
+            
+            if ($nbLines != 1) {
+                $errors = true;
+            }
         }
         
-        if (!$errors['errors']) {
+        if (!$errors) {
             $commentsManager = new CommentsManager();
             $commentsManager->addComment($_POST['pseudo'], $_POST['comment'], $_POST['post_id']);
-            header('Location: index.php?action=viewPost&id=' . $_POST['post_id']);
-            exit;
-        } 
+        }
+        
+        header('Location: index.php?action=viewPost&id=' . $_POST['post_id']);
+        exit;
     }
     
     public function deleteComment() {
-        // supprimer le cookie correspondant au commentaire s'il est définit
+        if (isset($_SESSION['user'])) {
+            if (isset($_GET['commentId']) && !empty($_GET['commentId'])) {
+                $commentsManager = new CommentsManager();
+                $commentsManager->deleteComment($_GET['commentId']);
+                
+                if (isset($_GET['postId'])) {
+                    header('Location: index.php?action=viewPost&id=' . $_GET['postId']);
+                    exit;
+                } else {
+                    header('Location: index.php?action=listPostsAdmin');
+                    exit;
+                }
+            }
+        } else {
+            header('Location: index.php?action=login');
+        }
     }
     
     public function reportComment() {
@@ -63,8 +83,10 @@ class CommentsController {
             
             if (isset($_GET['postId']) && !empty($_GET['postId'])) {
                 header('Location: index.php?action=viewPost&id=' . $_GET['postId']);
+                exit;
             } else {
                 header('Location: index.php#blog');
+                exit;
             }
         }
     }
