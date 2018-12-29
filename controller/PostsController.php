@@ -61,7 +61,7 @@ class PostsController {
                 $post = $postsManager->getPost($_GET['id']);
                 
                 $commentsManager = new CommentsManager();
-                $comments = $commentsManager->getComments($_GET['id']);
+                $comments = $commentsManager->getComments($_GET['id'], 'date');
                 $pageTitle = $post->getTitle();
 
                 require_once "view/menu.php";
@@ -96,13 +96,11 @@ class PostsController {
                     $postFeatures = [
                         'content' => $_POST['post_content'],
                         'title' => $_POST['post_title'],
-                        'author' => $_SESSION['user']->getLogin()
+                        'authorId' => $_SESSION['user']->getId()
                     ];
                     
-                    $post = new Post($postFeatures);
-                    
                     $postManager = new PostsManager();
-                    $postManager->addPost($post);
+                    $postManager->addPost($postFeatures);
                     
                     header('Location: index.php?action=listPostsAdmin');
                     exit;
@@ -168,7 +166,6 @@ class PostsController {
             if (isset($_GET['id'])) {
                 $postsManager = new PostsManager();
                 $postsManager->deletePost($_GET['id']);
-
                 header('Location: index.php?action=listPostsAdmin');
                 exit;
             } else {

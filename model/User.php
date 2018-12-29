@@ -6,6 +6,7 @@ class User {
     private $_id;
     private $_login;
     private $_password;
+    private $_pseudo;
     
     public function __construct(array $user) {
         $this->hydrate($user);
@@ -36,6 +37,12 @@ class User {
         }
     }
     
+    public function setPseudo($pseudo) {
+        if (is_string($pseudo)) {
+            $this->_pseudo = $pseudo;
+        }
+    }
+    
     public function getId() {
         return $this->_id;
     }
@@ -46,5 +53,9 @@ class User {
     
     public function getPassword() {
         return $this->_password;
+    }
+    
+    public function getPseudo() {
+        return $this->_pseudo;
     }
 }

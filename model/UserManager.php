@@ -12,7 +12,8 @@ class UserManager extends Manager {
         $userFeatures = [
             'id' => $user['id'],
             'login' => $user['user_login'],
-            'password' => $user['user_password']
+            'password' => $user['user_password'],
+            'pseudo' => $user['user_pseudo']
         ];
         
         $userObj = new User($userFeatures);

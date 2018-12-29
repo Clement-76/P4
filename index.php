@@ -10,7 +10,6 @@ session_start();
 
 $namespace = 'ClementPatigny\Controller\\';
 
-
 if (isset($_GET['action']) && !empty($_GET['action'])) {
     $action = $_GET['action'];
     
@@ -18,7 +17,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
         $controller = $namespace . 'PostsController';
     } elseif (in_array($action, ['login', 'logout'])) {
         $controller = $namespace . 'UserController';
-    } elseif (in_array($action, ['addComment', 'reportComment', 'deleteComment'])) {
+    } elseif (in_array($action, ['addComment', 'reportComment', 'deleteComment', 'listPostComments'])) {
         $controller = $namespace . 'CommentsController';
     } else {
         header("HTTP/1.0 404 Not Found");

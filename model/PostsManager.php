@@ -47,10 +47,10 @@ class PostsManager extends Manager {
         return $postObj;
     }
     
-    public function addPost(Post $post) {
+    public function addPost(array $post) {
         $db = $this->connectDb();
-        $q = $db->prepare('INSERT INTO posts(title, content) VALUE(?, ?)');
-        $q->execute([$post->getTitle(), $post->getContent()]);
+        $q = $db->prepare('INSERT INTO posts(title, content, author_id) VALUE(?, ?, ?)');
+        $q->execute([$post['title'], $post['content'], $post['authorId']]);
     }
     
     public function updatePost($title, $content, $postId) {
@@ -62,7 +62,7 @@ class PostsManager extends Manager {
     public function deletePost($postId) {
         $db = $this->connectDb();
         $q = $db->prepare('DELETE FROM posts WHERE id = ?');
-        $affectedLines = $q->execute([$postId]);
+        $q->execute([$postId]);
     }
     
     public function getNbPostLines($postId) {

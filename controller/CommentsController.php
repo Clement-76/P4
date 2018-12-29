@@ -7,6 +7,29 @@ use ClementPatigny\Model\PostsManager;
 
 class CommentsController {
     
+    public function listPostComments() {
+        if (isset($_SESSION['user'])) {
+            if (isset($_GET['id']) && !empty($_GET['id'])) {
+                $postsManager = new PostsManager();
+                $post = $postsManager->getPost($_GET['id']);
+
+                $commentsManager = new CommentsManager();
+                $comments = $commentsManager->getComments($_GET['id'], 'reports');
+                
+                $pageTitle = 'Commentaires - ' . $post->getTitle();
+                
+                require_once "view/menu.php";
+                require_once "view/commentsAdmin.php";
+                require_once "view/script.html";
+            } else {
+                header('Location: index.php?action=listPostsAdmin');
+            }
+        } else {
+            header('Location: index.php?action=login');
+            exit;
+        }
+    }
+    
     public function addComment() {
         $errors = false;
         
@@ -44,11 +67,11 @@ class CommentsController {
                 $commentsManager = new CommentsManager();
                 $commentsManager->deleteComment($_GET['commentId']);
                 
-                if (isset($_GET['postId'])) {
-                    header('Location: index.php?action=viewPost&id=' . $_GET['postId']);
+                if (isset($_GET['viewPostId'])) {
+                    header('Location: index.php?action=viewPost&id=' . $_GET['viewPostId']);
                     exit;
                 } else {
-                    header('Location: index.php?action=listPostsAdmin');
+                    header('Location: index.php?action=listPostComments&id=' . $_GET['postId']);
                     exit;
                 }
             }

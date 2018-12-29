@@ -12,14 +12,21 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach($posts as $post) : ?>
+        <?php foreach($posts as $post): ?>
             <tr>
                 <td><?= $post->getTitle() ?></td>
                 <td><?= $post->getAuthor() ?></td>
-                <td><a href="index.php?action=listCommentsAdmin&id=<?= $post->getId() ?>"><?= $post->getNbComments() ?></a> <i class="fas fa-comment"></i></td>
+                <td>
+                    <?php if ($post->getNbComments() == 0): ?>
+                        <?= $post->getNbComments() ?>
+                    <?php else: ?>
+                        <a href="index.php?action=listPostComments&id=<?= $post->getId() ?>"><?= $post->getNbComments() ?></a>
+                    <?php endif; ?>
+                    <i class="fas fa-comment"></i>
+                </td>
                 <td><?= $post->getCreationDate('d/m/Y') ?></td>
                 <td><a href="index.php?action=editPost&id=<?= $post->getId() ?>">Modifier</a></td>
-                <td><a href="index.php?action=deletePost&id=<?= $post->getId() ?>" class="delete">Supprimer</a></td>
+                <td><a href="index.php?action=deletePost&commentId=<?= $post->getId() ?>" class="delete_post">Supprimer</a></td>
             </tr>
         <?php endforeach; ?>
     </tbody>

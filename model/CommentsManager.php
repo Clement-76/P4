@@ -3,9 +3,14 @@
 namespace ClementPatigny\Model;
 
 class CommentsManager extends Manager {
-    public function getComments($postId) {
+    public function getComments($postId, $orderBy) {
         $db = $this->connectDb();
-        $q = $db->prepare('SELECT comments.id, comments.content, comments.creation_date, nb_reports, author FROM comments INNER JOIN posts ON comments.post_id = posts.id WHERE comments.post_id = ? ORDER BY creation_date DESC');
+        if ($orderBy == 'date') {
+            $q = $db->prepare('SELECT comments.id, comments.content, comments.creation_date, nb_reports, author FROM comments INNER JOIN posts ON comments.post_id = posts.id WHERE comments.post_id = ? ORDER BY creation_date DESC');
+        } else {
+            $q = $db->prepare('SELECT comments.id, comments.content, comments.creation_date, nb_reports, author FROM comments INNER JOIN posts ON comments.post_id = posts.id WHERE comments.post_id = ? ORDER BY nb_reports DESC');
+        }
+        
         $q->execute([$postId]);
         $comments = [];
         
