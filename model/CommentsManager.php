@@ -53,6 +53,12 @@ class CommentsManager extends Manager {
         $q->execute([$commentId]);
     }
     
+    public function deleteComments($postId) {
+        $db = $this->connectDb();
+        $q = $db->prepare('DELETE FROM comments WHERE post_id = ?');
+        $q->execute([$postId]);
+    }
+    
     public function updateNbReportsComment($commentId) {
         $db = $this->connectDb();
         $q = $db->prepare('UPDATE comments SET nb_reports = nb_reports + 1 WHERE id = ?');

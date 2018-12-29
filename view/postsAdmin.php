@@ -26,7 +26,7 @@
                 </td>
                 <td><?= $post->getCreationDate('d/m/Y') ?></td>
                 <td><a href="index.php?action=editPost&id=<?= $post->getId() ?>">Modifier</a></td>
-                <td><a href="index.php?action=deletePost&commentId=<?= $post->getId() ?>" class="delete_post">Supprimer</a></td>
+                <td><a href="index.php?action=deletePost&id=<?= $post->getId() ?>" class="delete_post">Supprimer</a></td>
             </tr>
         <?php endforeach; ?>
     </tbody>

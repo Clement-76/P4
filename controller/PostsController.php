@@ -166,6 +166,10 @@ class PostsController {
             if (isset($_GET['id'])) {
                 $postsManager = new PostsManager();
                 $postsManager->deletePost($_GET['id']);
+                
+                $commentsManager = new CommentsManager();
+                $commentsManager->deleteComments($_GET['id']);
+                
                 header('Location: index.php?action=listPostsAdmin');
                 exit;
             } else {
