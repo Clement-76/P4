@@ -1,11 +1,24 @@
 :root {
     --arrow-width: 25px;
+    --fonts: 'Roboto', sans-serif;
 }
 
 html,
 body {
     height: 100%;
     margin: 0;
+}
+
+body {
+    font-family: var(--fonts);
+    background-color: #e6e6e6;
+/*
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: radial-gradient(circle, rgba(38, 49, 69, 0.7) 10%, rgba(38, 49, 69, 0.8) 100%), url(../images/alaska-inside-passage.jpg);
+    background-attachment: fixed;
+*/
 }
 
 .overlay {
@@ -25,13 +38,6 @@ aside {
     width: 20vw;
     min-width: 200px;
     z-index: 10;
-/*    background-color: #7cb4cd;*/
-/*    background-color: #84A4D1;*/
-/*    background-color: #5c87a4;*/
-/*    background-color: #017b9a;*/
-/*    background-color: #00667f;*/
-/*    background-color: #248fae;*/
-/*    background-color: #4ea0b8;*/
     background-color: #428ca2;
     height: 100%;
     top: 0;
@@ -52,17 +58,14 @@ aside ul {
 aside li {
     padding: 3px 0;
     list-style: none;
-/*    padding: 6px 12vw 6px 0;*/
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 aside a {
     color: #fff;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 2px;
     padding: 10px 0;
-    font-size: 0.9em;
     display: block;
     text-decoration: none;
 }
@@ -93,12 +96,6 @@ aside.open_menu {
     border-radius: 5px;
     position: absolute;
 }
-
-/*
-.close_menu:hover div {
-    background-color: #263145;
-}
-*/
 
 .close_menu div:first-child {
     transform: rotate(45deg);
@@ -135,25 +132,27 @@ aside.open_menu {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-/*    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgb(38, 49, 69) 100%), url(../images/glacier-bay-80643.jpg);*/
-    background-image: radial-gradient(circle, rgba(38, 49, 69, 0.7) 10%, rgba(38, 49, 69, 0.8) 100%), url(../images/alaska-inside-passage.jpg);  
-/*    background-image: radial-gradient(circle, rgba(6, 38, 73, 0.4) 0%, rgba(6, 38, 73, 0.9) 90%), url(../images/glacier-bay-80643.jpg);    */
-/*    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(119, 143, 197, 0.5) 100%), url("../images/glacier-bay-80643.jpg");*/
+    background-image: radial-gradient(circle, rgba(38, 49, 69, 0.7) 10%, rgba(38, 49, 69, 0.8) 100%), url(../images/alaska-inside-passage.jpg);
+    background-attachment: fixed;
 }
 
 .title {
     color: #fff;
     font-size: 3.5em;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
+    font-weight: 100;
     margin: 0;
+}
+
+.center {
+    margin: 0 auto;
+    width: 1024px;
 }
 
 #home h2.title {
     font-size: 1.8em;
 }
 
-.center {
+.absolute_center {
     position: absolute;
     text-align: center;
     width: 100%;
@@ -187,7 +186,6 @@ aside.open_menu {
     cursor: pointer;
 }
 
-
 @keyframes arrow_animation {
     0% {
         bottom: 0;
@@ -200,6 +198,122 @@ aside.open_menu {
     100% {
         bottom: 0;
     }
+}
+
+.container {
+    border-radius: 10px;
+    width: 95%;
+    margin: 0 auto;
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.2);
+    background-color: #fff;
+}
+
+.italic {
+    font-style: italic;
+}
+
+#blog {
+    padding: 30px 50px 0 50px;
+/*    background-color: #fff;*/
+/*    background-color: #2b343d;*/
+}
+
+#blog article {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #c9c9c9;
+    color: #2b343d;
+    font-size: 1.1em;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#blog article:last-child {
+    border-bottom: 0;
+}
+
+#blog article h2 {
+    font-size: 2em;
+}
+
+#blog article:first-child h2 {
+    margin-top: 0;
+}
+
+a {
+    color: #007bff;
+}
+
+footer {
+    background-color: #fff;
+    padding: 25px 50px;
+    font-family: 'roboto', sans-serif;
+    letter-spacing: -0.2px;
+    color: #fff;
+    background-color: #2b343d;
+/*    background-color: #43576b;*/
+}
+
+footer .center {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+footer nav {
+    padding-right: 15px;
+}
+
+footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+
+footer li {
+    list-style: none;
+    margin: 5px auto;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    transition-duration: 0.5s;
+    white-space: nowrap;
+}
+
+footer ul li:nth-child(2) {
+    margin: 5px 10px;
+}
+
+#cookie {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.65);
+    padding: 10px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cookie p {
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 300;
+}
+
+#cookie button {
+    margin-left: 8px;
+    border-radius: 4px;
+    background-color: #428ca2;
+    color: #fff;
+    padding: 6px 10px;
+    border: 0;
+    cursor: pointer;
 }
 
 /* the tinyMCE word counter */

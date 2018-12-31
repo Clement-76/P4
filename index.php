@@ -7,6 +7,9 @@ Autoloader::register();
 session_start();
 
 // message pour les cookies
+if (!isset($_COOKIE['acceptCookies'])) {
+    require_once "view/cookie.php";
+}
 
 $namespace = 'ClementPatigny\Controller\\';
 

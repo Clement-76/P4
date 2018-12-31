@@ -17,7 +17,7 @@
                 <td><?= $comment->getAuthor() ?></td>
                 <td><?= $comment->getNbReports() ?></td>
                 <td><?= $comment->getCreationDate('d/m/Y à h:m:s') ?></td>
-                <td><a href="index.php?action=deleteComment&commentId=<?= $comment->getId() ?>&postId=<?= $post->getId() ?>" class="delete_comment">Supprimer</a></td>
+                <td><a href="index.php?action=deleteComment&commentId=<?= $comment->getId() ?>&postId=<?= $post->getId() ?>" class="delete">Supprimer</a></td>
             </tr>
         <?php endforeach; ?>
     </tbody>
