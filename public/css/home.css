@@ -1,0 +1,114 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #e6e6e6;
+}
+
+#home {
+    position: relative;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: radial-gradient(circle, rgba(38, 49, 69, 0.7) 10%, rgba(38, 49, 69, 0.8) 100%), url(../images/alaska-inside-passage.jpg);
+    background-attachment: fixed;
+}
+
+.title {
+    color: #fff;
+    font-size: 3.5em;
+    font-weight: 100;
+    margin: 0;
+    font-family: var(--roboto);
+}
+
+.center {
+    margin: 0 auto;
+    width: 1024px;
+}
+
+#home h2.title {
+    font-size: 1.8em;
+}
+
+.absolute_center {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+}
+
+.container_bottom {
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+}
+
+#home .arrow {
+    margin: 0 auto;
+}
+
+.arrow {
+    height: var(--arrow-width);
+    width: var(--arrow-width);
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.arrow.bottom {
+    transform: rotate(45deg);
+    border-bottom-right-radius: 3px;
+    position: relative;
+    animation: arrow_animation 0.8s infinite;
+    cursor: pointer;
+}
+
+@keyframes arrow_animation {
+    0% {
+        bottom: 0;
+    }
+
+    50% {
+        bottom: 10px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+.container {
+    border-radius: 10px;
+    width: 95%;
+    margin: 0 auto;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
+
+#blog {
+    padding: 30px 50px 0 50px;
+}
+
+#blog article {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #c9c9c9;
+    color: #2b343d;
+    font-size: 1.1em;
+}
+
+#blog article:last-child {
+    border-bottom: 0;
+}
+
+#blog article h2 {
+    font-size: 2em;
+}
+
+#blog article:first-child h2 {
+    margin-top: 0;
+}

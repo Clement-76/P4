@@ -6,7 +6,6 @@ Autoloader::register();
 
 session_start();
 
-// message pour les cookies
 if (!isset($_COOKIE['acceptCookies'])) {
     require_once "view/cookie.php";
 }
@@ -20,7 +19,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
         $controller = $namespace . 'PostsController';
     } elseif (in_array($action, ['login', 'logout'])) {
         $controller = $namespace . 'UserController';
-    } elseif (in_array($action, ['addComment', 'reportComment', 'deleteComment', 'listPostComments'])) {
+    } elseif (in_array($action, ['addComment', 'reportComment', 'deleteComment', 'listPostComments', 'listComments'])) {
         $controller = $namespace . 'CommentsController';
     } else {
         header("HTTP/1.0 404 Not Found");

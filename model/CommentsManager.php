@@ -3,15 +3,37 @@
 namespace ClementPatigny\Model;
 
 class CommentsManager extends Manager {
-    public function getComments($postId, $orderBy) {
+    public function getPostComments($postId, $orderBy) {
         $db = $this->connectDb();
         if ($orderBy == 'date') {
-            $q = $db->prepare('SELECT comments.id, comments.content, comments.creation_date, nb_reports, author FROM comments INNER JOIN posts ON comments.post_id = posts.id WHERE comments.post_id = ? ORDER BY creation_date DESC');
+            $q = $db->prepare('SELECT * FROM comments WHERE post_id = ? ORDER BY creation_date DESC');
         } else {
-            $q = $db->prepare('SELECT comments.id, comments.content, comments.creation_date, nb_reports, author FROM comments INNER JOIN posts ON comments.post_id = posts.id WHERE comments.post_id = ? ORDER BY nb_reports DESC');
+            $q = $db->prepare('SELECT * FROM comments WHERE post_id = ? ORDER BY nb_reports DESC');
         }
         
         $q->execute([$postId]);
+        $comments = [];
+        
+        while ($comment = $q->fetch()) {
+            $commentFeatures = [
+                'content' => $comment['content'],
+                'author' => $comment['author'],
+                'id' => $comment['id'],
+                'nbReports' => $comment['nb_reports'],
+                'creationDate' => $comment['creation_date']
+            ];
+            
+            $comments[] = new Comment($commentFeatures);
+        }
+        
+        return $comments;
+    }
+    
+    public function getComments() {
+        $db = $this->connectDb();
+        $q = $db->prepare('SELECT * FROM comments ORDER BY nb_reports DESC');
+        $q->execute();
+        
         $comments = [];
         
         while ($comment = $q->fetch()) {

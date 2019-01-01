@@ -25,7 +25,7 @@ class UserController {
 
         require_once "view/menu.php";
         require_once "view/login.php";
-        require_once "view/script.html";
+        require_once "view/script.php";
     }
 
     public function logout() {

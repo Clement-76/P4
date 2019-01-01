@@ -7,7 +7,7 @@
                     <li><a href="">Politique de confidentialité</a></li>
                 </ul>
             </nav>
-            <p>Copyright © 2018 Tous droits réservés</p>
+            <p>Copyright © <?= date('Y') ?> Tous droits réservés</p>
         </div>
     </footer>
 </div>

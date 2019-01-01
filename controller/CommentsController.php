@@ -14,16 +14,32 @@ class CommentsController {
                 $post = $postsManager->getPost($_GET['id']);
 
                 $commentsManager = new CommentsManager();
-                $comments = $commentsManager->getComments($_GET['id'], 'reports');
+                $comments = $commentsManager->getPostComments($_GET['id'], 'reports');
                 
                 $pageTitle = 'Commentaires - ' . $post->getTitle();
                 
                 require_once "view/menu.php";
                 require_once "view/commentsAdmin.php";
-                require_once "view/script.html";
+                require_once "view/script.php";
             } else {
                 header('Location: index.php?action=listPostsAdmin');
             }
+        } else {
+            header('Location: index.php?action=login');
+            exit;
+        }
+    }
+    
+    public function listComments() {
+        if (isset($_SESSION['user'])) {
+                $commentsManager = new CommentsManager();
+                $comments = $commentsManager->getComments();
+                
+                $pageTitle = 'Administration des commentaires';
+                
+                require_once "view/menu.php";
+                require_once "view/commentsAdmin.php";
+                require_once "view/script.php";
         } else {
             header('Location: index.php?action=login');
             exit;
@@ -67,16 +83,12 @@ class CommentsController {
                 $commentsManager = new CommentsManager();
                 $commentsManager->deleteComment($_GET['commentId']);
                 
-                if (isset($_GET['viewPostId'])) {
-                    header('Location: index.php?action=viewPost&id=' . $_GET['viewPostId']);
-                    exit;
-                } else {
-                    header('Location: index.php?action=listPostComments&id=' . $_GET['postId']);
-                    exit;
-                }
+                echo "success";
+            } else {
+                echo "idUndefined";
             }
         } else {
-            header('Location: index.php?action=login');
+            echo "notConnected";
         }
     }
     
@@ -96,6 +108,9 @@ class CommentsController {
                         $value[] = $_GET['commentId'];
                         setcookie('reportsComments', serialize($value), time() + 30 * 24 * 3600, null, null, false, true);
                     }
+                } else {
+                    echo "alreadyReport";
+                    exit;
                 }
             } else {
                 if ($nbLines == 1) {
@@ -103,14 +118,9 @@ class CommentsController {
                     setcookie('reportsComments', serialize([$_GET['commentId']]), time() + 30 * 24 * 3600, null, null, false, true);
                 }
             }
-            
-            if (isset($_GET['postId']) && !empty($_GET['postId'])) {
-                header('Location: index.php?action=viewPost&id=' . $_GET['postId']);
-                exit;
-            } else {
-                header('Location: index.php#blog');
-                exit;
-            }
+            echo "success";
+        } else {
+            echo "idUndefined";
         }
     }
 }

@@ -17,7 +17,7 @@ class PostsController {
         require_once "view/home.html";
         require_once "view/postSummary.php";
         require_once "view/footer.php";
-        require_once "view/script.html";
+        require_once "view/script.php";
     }
     
     public function listPostsAdmin() {
@@ -28,7 +28,7 @@ class PostsController {
 
             require_once "view/menu.php";
             require_once "view/postsAdmin.php";
-            require_once "view/script.html";
+            require_once "view/script.php";
         } else {
             header('Location: index.php?action=login');
         }
@@ -62,14 +62,14 @@ class PostsController {
                 $post = $postsManager->getPost($_GET['id']);
                 
                 $commentsManager = new CommentsManager();
-                $comments = $commentsManager->getComments($_GET['id'], 'date');
+                $comments = $commentsManager->getPostComments($_GET['id'], 'date');
                 $pageTitle = $post->getTitle();
 
                 require_once "view/menu.php";
                 require_once "view/post.php";
                 require_once "view/formComment.php";
                 require_once "view/comment.php";
-                require_once "view/script.html";
+                require_once "view/script.php";
             } else {
                 header('HTTP/1.0 404 Not Found');
             }
@@ -114,7 +114,7 @@ class PostsController {
 
             require_once "view/menu.php";
             require_once "view/formPost.php";
-            require_once "view/script.html";
+            require_once "view/script.php";
         } else {
             header('Location: index.php?action=login');
             exit;
@@ -154,7 +154,7 @@ class PostsController {
 
                 require_once "view/menu.php";
                 require_once "view/formPost.php";
-                require_once "view/script.html";
+                require_once "view/script.php";
             }
         } else {
             header('Location: index.php?action=login');
@@ -164,21 +164,20 @@ class PostsController {
     
     public function deletePost() {
         if (isset($_SESSION['user'])) {
-            if (isset($_GET['id'])) {
+            if (isset($_GET['id']) && !empty($_GET['id'])) {
                 $postsManager = new PostsManager();
                 $postsManager->deletePost($_GET['id']);
                 
                 $commentsManager = new CommentsManager();
                 $commentsManager->deleteComments($_GET['id']);
                 
-                header('Location: index.php?action=listPostsAdmin');
+                echo "success";
                 exit;
             } else {
-                echo "Id invalide";
+                echo "idUndefined";
             }
         } else {
-            header('Location: index.php?action=login');
-            exit;
+            echo "notConnected";
         }
     }
 }
