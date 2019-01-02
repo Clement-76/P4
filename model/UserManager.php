@@ -3,6 +3,11 @@
 namespace ClementPatigny\Model;
 
 class UserManager extends Manager {
+    /**
+     * return a user object
+     * @param  string $login the login of the user
+     * @return object the user object
+     */
     public function getUser($login) {
         $db = $this->connectDb();
         $q = $db->prepare('SELECT * FROM users WHERE user_login = ?');

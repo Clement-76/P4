@@ -4,9 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php if (isset($description) && !empty($description)): ?>
+        <meta name="description" content="<?= $description ?>">
+    <?php endif; ?>
     <title><?= htmlspecialchars($pageTitle) ?></title>
+    <link rel="icon" type="image/png" href="public/images/alaska_mountain.png">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+    <?php if (!isset($_GET['action'])): ?>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+    <?php endif; ?>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <?php if (!isset($_GET['action'])): ?>
         <link rel="stylesheet" href="public/css/home.css">
@@ -60,11 +66,12 @@
     <?php endif; ?>
     
     <?php if (isset($_GET['action']) && $_GET['action'] == 'listComments'): ?>
-        <script src="public/js/comments.js"></script>
+        <script src="public/js/commentsAdmin.js"></script>
     <?php endif; ?>
     
     <?php if (isset($_GET['action']) && $_GET['action'] == 'viewPost'): ?>
         <script src="public/js/report.js"></script>
+        <script src="public/js/formComment.js"></script>
     <?php endif; ?>
     
     <?php if (!isset($_GET['action'])): ?>

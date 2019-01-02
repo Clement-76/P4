@@ -9,14 +9,21 @@ use ClementPatigny\Controller\AppController;
 
 class PostsController extends AppController {
     
+    /**
+     * list all posts in the home page
+     */
     public function listPosts() {
         $postsManager = new PostsManager();
         $posts = $postsManager->getPosts();
         $pageTitle = "Blog - Jean Forteroche";
+        $description = "Venez découvrir le nouveau roman de Jean Forteroche : Billet simple pour l'Alaska.";
         
-        $this->render(['home', 'postSummary', 'footer'], compact('posts', 'pageTitle'));
+        $this->render(['home', 'postSummary', 'footer'], compact('posts', 'pageTitle', 'description'));
     }
     
+    /**
+     * list all posts in the admin panel in a html table
+     */
     public function listPostsAdmin() {
         if (isset($_SESSION['user'])) {
             $postsManager = new PostsManager();
@@ -29,6 +36,11 @@ class PostsController extends AppController {
         }
     }
 
+    /**
+     * return a summary of a text
+     * @param  string $content the text 
+     * @return string the summary
+     */
     public function getSummary($content) {
         $words = explode(" ", $content);
         $summary = "";
@@ -48,6 +60,9 @@ class PostsController extends AppController {
         return $summary;
     }
 
+    /**
+     * display a post
+     */
     public function viewPost() {
         if (isset($_GET['id']) && !empty($_GET['id'])) {
             $postsManager = new PostsManager();
@@ -59,8 +74,9 @@ class PostsController extends AppController {
                 $commentsManager = new CommentsManager();
                 $comments = $commentsManager->getPostComments($_GET['id'], 'date');
                 $pageTitle = $post->getTitle();
+                $description = $this->getSummary(strip_tags($post->getContent()));
                 
-                $this->render(['post', 'formComment', 'comment'], compact('post', 'comments', 'pageTitle'));
+                $this->render(['post', 'formComment', 'comment'], compact('post', 'comments', 'pageTitle', 'description'));
             } else {
                 header('HTTP/1.0 404 Not Found');
             }

@@ -3,6 +3,11 @@
 namespace ClementPatigny\Controller;
 
 class AppController {
+    /**
+     * renders views
+     * @param array array $views      views to require
+     * @param array [$variables = []] variables whose views need
+     */
     public function render(array $views, $variables = []) {
         ob_start();
         extract($variables);

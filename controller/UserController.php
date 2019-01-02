@@ -7,6 +7,9 @@ use ClementPatigny\Controller\AppController;
 
 class UserController extends AppController {
 
+    /**
+     * login the user
+     */
     public function login() {
         $errors = false;
 
@@ -27,6 +30,9 @@ class UserController extends AppController {
         $this->render(['login'], compact('pageTitle', 'errors'));
     }
 
+    /**
+     * logout the user
+     */
     public function logout() {
         $_SESSION = [];
         session_destroy();

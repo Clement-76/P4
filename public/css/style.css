@@ -167,6 +167,10 @@ footer a {
     white-space: nowrap;
 }
 
+footer a:hover {
+    color: #408ddf;
+}
+
 footer ul li:nth-child(2) {
     margin: 5px 10px;
 }

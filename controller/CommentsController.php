@@ -8,6 +8,9 @@ use ClementPatigny\Controller\AppController;
 
 class CommentsController extends AppController {
     
+    /**
+     * list the comments of a post
+     */
     public function listPostComments() {
         if (isset($_SESSION['user'])) {
             if (isset($_GET['id']) && !empty($_GET['id'])) {
@@ -29,6 +32,9 @@ class CommentsController extends AppController {
         }
     }
     
+    /**
+     * list all the comments in the admin panel
+     */
     public function listComments() {
         if (isset($_SESSION['user'])) {
                 $commentsManager = new CommentsManager();
