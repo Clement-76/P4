@@ -4,8 +4,9 @@ namespace ClementPatigny\Controller;
 
 use ClementPatigny\Model\CommentsManager;
 use ClementPatigny\Model\PostsManager;
+use ClementPatigny\Controller\AppController;
 
-class CommentsController {
+class CommentsController extends AppController {
     
     public function listPostComments() {
         if (isset($_SESSION['user'])) {
@@ -18,9 +19,7 @@ class CommentsController {
                 
                 $pageTitle = 'Commentaires - ' . $post->getTitle();
                 
-                require_once "view/menu.php";
-                require_once "view/commentsAdmin.php";
-                require_once "view/script.php";
+                $this->render(['commentsAdmin'], compact('pageTitle', 'post', 'comments'));
             } else {
                 header('Location: index.php?action=listPostsAdmin');
             }
@@ -37,9 +36,7 @@ class CommentsController {
                 
                 $pageTitle = 'Administration des commentaires';
                 
-                require_once "view/menu.php";
-                require_once "view/commentsAdmin.php";
-                require_once "view/script.php";
+                $this->render(['commentsAdmin'], compact('comments', 'pageTitle'));
         } else {
             header('Location: index.php?action=login');
             exit;

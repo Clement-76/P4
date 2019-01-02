@@ -5,19 +5,16 @@ namespace ClementPatigny\Controller;
 use ClementPatigny\Model\PostsManager;
 use ClementPatigny\Model\CommentsManager;
 use ClementPatigny\Model\Post;
+use ClementPatigny\Controller\AppController;
 
-class PostsController {
+class PostsController extends AppController {
     
     public function listPosts() {
         $postsManager = new PostsManager();
         $posts = $postsManager->getPosts();
         $pageTitle = "Blog - Jean Forteroche";
-
-        require_once "view/menu.php";
-        require_once "view/home.html";
-        require_once "view/postSummary.php";
-        require_once "view/footer.php";
-        require_once "view/script.php";
+        
+        $this->render(['home', 'postSummary', 'footer'], compact('posts', 'pageTitle'));
     }
     
     public function listPostsAdmin() {
@@ -25,10 +22,8 @@ class PostsController {
             $postsManager = new PostsManager();
             $posts = $postsManager->getPosts();
             $pageTitle = "Administration";
-
-            require_once "view/menu.php";
-            require_once "view/postsAdmin.php";
-            require_once "view/script.php";
+            
+            $this->render(['postsAdmin'], compact('posts', 'pageTitle'));
         } else {
             header('Location: index.php?action=login');
         }
@@ -64,12 +59,8 @@ class PostsController {
                 $commentsManager = new CommentsManager();
                 $comments = $commentsManager->getPostComments($_GET['id'], 'date');
                 $pageTitle = $post->getTitle();
-
-                require_once "view/menu.php";
-                require_once "view/post.php";
-                require_once "view/formComment.php";
-                require_once "view/comment.php";
-                require_once "view/script.php";
+                
+                $this->render(['post', 'formComment', 'comment'], compact('post', 'comments', 'pageTitle'));
             } else {
                 header('HTTP/1.0 404 Not Found');
             }
@@ -111,10 +102,8 @@ class PostsController {
             }
 
             $pageTitle = "Ajouter un nouvel article";
-
-            require_once "view/menu.php";
-            require_once "view/formPost.php";
-            require_once "view/script.php";
+            
+            $this->render(['formPost'], compact('pageTitle', 'errors'));
         } else {
             header('Location: index.php?action=login');
             exit;
@@ -151,10 +140,8 @@ class PostsController {
                 }
 
                 $pageTitle = "Modifier l'article";
-
-                require_once "view/menu.php";
-                require_once "view/formPost.php";
-                require_once "view/script.php";
+                
+                $this->render(['formPost'], compact('pageTitle', 'post', 'errors'));
             }
         } else {
             header('Location: index.php?action=login');

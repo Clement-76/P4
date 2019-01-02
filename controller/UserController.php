@@ -3,8 +3,9 @@
 namespace ClementPatigny\Controller;
 
 use ClementPatigny\Model\UserManager;
+use ClementPatigny\Controller\AppController;
 
-class UserController {
+class UserController extends AppController {
 
     public function login() {
         $errors = false;
@@ -22,10 +23,8 @@ class UserController {
         }
 
         $pageTitle = "Connexion";
-
-        require_once "view/menu.php";
-        require_once "view/login.php";
-        require_once "view/script.php";
+        
+        $this->render(['login'], compact('pageTitle', 'errors'));
     }
 
     public function logout() {
