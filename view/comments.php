@@ -9,9 +9,9 @@
             <textarea name="comment" cols="50" rows="5" placeholder="Entrez votre commentaire" required></textarea>
         </p>
         <p>
-            <input type="hidden" name="post_id" value="<?= $post->getId() ?>">
+            <input type="submit" value="Poster">
         </p>
-        <input type="submit" value="Poster">
+        <input type="hidden" name="post_id" value="<?= $post->getId() ?>">
     </form>
 
     <?php foreach($comments as $comment): ?>

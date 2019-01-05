@@ -71,15 +71,8 @@ section#comments h2 {
     padding-bottom: 8px;
 }
 
-#newComment textarea,
-#newComment input {
-    font-family: var(--open-sans);
-    font-size: 1em;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    outline: none;
-    color: #1e364e;
-    padding: 5px;
+#newComment textarea {
+    vertical-align: bottom;
 }
 
 #newComment input:focus,

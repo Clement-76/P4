@@ -1,4 +1,6 @@
 <form method="post">
+    <h1>Connexion</h1>
+    
     <p>
         <label for="user_login">Identifiant</label><br>
         <input id="user_login" type="text" name="user_login" required>

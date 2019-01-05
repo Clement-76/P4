@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="public/css/style.css">
+    <?php if (isset($_GET['action']) && $_GET['action'] == 'login'): ?>
+        <link rel="stylesheet" href="public/css/login.css">
+    <?php endif; ?>
     <?php if (!isset($_GET['action'])): ?>
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="public/css/home.css">
