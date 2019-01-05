@@ -3,22 +3,18 @@ $(function () {
         e.preventDefault();
         if (confirm("Êtes-vous sûr de vouloir signaler ce commentaire ?")) {
             $.post(e.target.href, function (response) {
-                switch (response) {
+                let array = JSON.parse(response);
+                
+                switch (array[0]) {
                     case "success":
-                        let span = $(document.createElement("span"));
-                        span.text("Ce commentaire a bien été signalé");
-                        span.attr("class", "success");
-                        $(e.target).after(span);
-
-                        setTimeout(function () {
-                            span.remove();
-                        }, 3000);
+                        statusMessage("success", "Le commentaire a bien été signalé");
                         break;
                     case "idUndefined":
+                        statusMessage("error", "L'id n'est pas définit");
                         console.error("Error: id is undefined");
                         break;
                     case "alreadyReport":
-                        console.error("Error: you've already report this comment");
+                        statusMessage("error", "Vous avez déjà signalé ce commentaire");
                         break;
                 }
             });

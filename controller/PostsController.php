@@ -76,7 +76,7 @@ class PostsController extends AppController {
                 $pageTitle = $post->getTitle();
                 $description = $this->getSummary(strip_tags($post->getContent()));
                 
-                $this->render(['post', 'formComment', 'comment'], compact('post', 'comments', 'pageTitle', 'description'));
+                $this->render(['post', 'comments', 'footer'], compact('post', 'comments', 'pageTitle', 'description'));
             } else {
                 header('HTTP/1.0 404 Not Found');
             }
@@ -174,13 +174,13 @@ class PostsController extends AppController {
                 $commentsManager = new CommentsManager();
                 $commentsManager->deleteComments($_GET['id']);
                 
-                echo "success";
+                echo json_encode(["success", "post"]);
                 exit;
             } else {
-                echo "idUndefined";
+                echo json_decode(["idUndefined", "post"]);
             }
         } else {
-            echo "notConnected";
+            echo json_encode(["notConnected", "post"]);
         }
     }
 }

@@ -72,11 +72,16 @@ class CommentsController extends AppController {
         }
         
         if (!$errors) {
+            $comment = htmlspecialchars($_POST['comment']);
+            // replaces multiple line breaks by one line break
+            $comment = preg_replace("#(\n|\r)+#", "\n", $comment);
+            $comment = preg_replace("#(.+)(\n)*#", "<p>$1</p>", $comment);
+            
             $commentsManager = new CommentsManager();
-            $commentsManager->addComment($_POST['pseudo'], $_POST['comment'], $_POST['post_id']);
+            $commentsManager->addComment($_POST['pseudo'], $comment, $_POST['post_id']);
         }
         
-        header('Location: index.php?action=viewPost&id=' . $_POST['post_id']);
+        header('Location: index.php?action=viewPost&id=' . $_POST['post_id'] . '#comments');
         exit;
     }
     
@@ -86,12 +91,12 @@ class CommentsController extends AppController {
                 $commentsManager = new CommentsManager();
                 $commentsManager->deleteComment($_GET['commentId']);
                 
-                echo "success";
+                echo json_encode(["success", "comment"]);
             } else {
-                echo "idUndefined";
+                echo json_encode(["idUndefined", "comment"]);
             }
         } else {
-            echo "notConnected";
+            echo json_encode(["notConnected", "comment"]);
         }
     }
     
@@ -112,7 +117,7 @@ class CommentsController extends AppController {
                         setcookie('reportsComments', serialize($value), time() + 30 * 24 * 3600, null, null, false, true);
                     }
                 } else {
-                    echo "alreadyReport";
+                    echo json_encode(["alreadyReport", "comment"]);
                     exit;
                 }
             } else {
@@ -121,9 +126,9 @@ class CommentsController extends AppController {
                     setcookie('reportsComments', serialize([$_GET['commentId']]), time() + 30 * 24 * 3600, null, null, false, true);
                 }
             }
-            echo "success";
+            echo json_encode(["success", "comment"]);
         } else {
-            echo "idUndefined";
+            echo json_encode(["idUndefined", "comment"]);
         }
     }
 }

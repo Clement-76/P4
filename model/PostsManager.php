@@ -40,13 +40,17 @@ class PostsManager extends Manager {
      */
     public function getPost($postId) {
         $db = $this->connectDb();
-        $q = $db->prepare("SELECT posts.*, users.user_pseudo FROM posts INNER JOIN users ON posts.author_id = users.id WHERE posts.id = ?");
+        $q = $db->prepare("SELECT posts.*, user_pseudo FROM posts INNER JOIN users ON posts.author_id = users.id WHERE posts.id = ?");
         $q->execute([$postId]);
         $post = $q->fetch();
+        
+        $commentsManager = new CommentsManager();
+        $nbComments = $commentsManager->getNbPostComments($postId);
 
         $postFeatures = [
             'content' => $post['content'],
             'title' => $post['title'],
+            'nbComments' => $nbComments['nb_comments'],
             'id' => $post['id'],
             'author' => $post['user_pseudo'],
             'creationDate' => $post['creation_date']

@@ -11,7 +11,7 @@ $(function () {
         });
     });
 
-    $(".close_menu, .overlay").on("click", function () {
+    $("aside .close, .overlay").on("click", function () {
         $("aside").removeClass("open_menu");
         
         $("body").css("overflow", "visible");

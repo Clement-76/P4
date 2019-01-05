@@ -7,6 +7,7 @@
 body {
     margin: 0;
     font-family: var(--open-sans);
+    color: #2b343d;
 }
 
 .overlay {
@@ -66,18 +67,21 @@ aside.open_menu {
     transform: translateX(0);
 }
 
-.close_menu {
+aside .close {
+    margin-left: auto;
+}
+
+.close {
     position: relative;
     cursor: pointer;
     width: 40px;
     height: 40px;
     display: flex;
-    margin-left: auto;
     justify-content: center;
     align-items: center;
 }
 
-.close_menu div {
+.close div {
     height: 3px;
     background-color: #fff;
     width: 25px;
@@ -85,11 +89,41 @@ aside.open_menu {
     position: absolute;
 }
 
-.close_menu div:first-child {
+.success,
+.error {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    z-index: 1;
+    box-shadow: 0px 0px 15px 0 #b0b0b0;
+    padding: 5px 0 5px 10px;
+    color: #525252;
+    border-radius: 3px;
+}
+
+.success {
+    border-left: 3px solid #66bb6a;
+}
+
+.error {
+    border-left: 3px solid #d93e3e;
+}
+
+.success .close div,
+.error .close div {
+    width: 20px;
+    background-color: #2b343d;
+}
+
+.close div:first-child {
     transform: rotate(45deg);
 }
 
-.close_menu div:last-child {
+.close div:last-child {
     transform: rotate(-45deg);
 }
 
@@ -120,7 +154,6 @@ aside.open_menu {
 
 a {
     color: #007bff;
-    transition: 0.3s;
 }
 
 a:hover {
@@ -173,6 +206,19 @@ footer a:hover {
 
 footer ul li:nth-child(2) {
     margin: 5px 10px;
+}
+
+.container {
+    border-radius: 10px;
+    width: 95%;
+    margin: 0 auto;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
+
+.center {
+    margin: 0 auto;
+    width: 1024px;
 }
 
 #cookie {

@@ -6,21 +6,20 @@ $(function () {
                 type: "DELETE",
                 url: e.target.href,
                 success: function (response) {
-                    switch (response) {
+                    let array = JSON.parse(response);
+                    
+                    switch (array[0]) {
                         case "success":
                             $(e.target).parents("tr").remove();
-
-                            let div = $(document.createElement("div"));
-                            div.text("Le commentaire a bien été supprimé");
-                            div.attr("class", "success");
-                            $("h1").after(div);
                             
-                            setTimeout(function () {
-                                div.remove();
-                            }, 3000);
-                            
+                            if (array[1] === "post") {
+                                statusMessage("success", "L'article a bien été supprimé");
+                            } else {
+                                statusMessage("success", "Le commentaire a bien été supprimé");
+                            }
                             break;
                         case "idUndefined":
+                            statusMessage("error", "L'id n'est pas définit");
                             console.error("Error: id is undefined");
                             break;
                         case "notConnected":

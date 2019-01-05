@@ -25,7 +25,7 @@
         <?php foreach($comments as $comment): ?>
             <tr class="<?= ($comment->getNbReports() == 0) ? 'not_comment_report' : '' ?>">
                 
-                <td><?= $comment->getContent() ?></td>
+                <td><?= preg_replace("#<p>(.+)<\/p>#U", " $1 ", $comment->getContent()) ?></td>
                 <td><?= $comment->getAuthor() ?></td>
                 <td><?= $comment->getNbReports() ?></td>
                 <td><?= $comment->getCreationDate('d/m/Y à H:i:s') ?></td>

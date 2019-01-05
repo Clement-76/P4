@@ -48,7 +48,7 @@ class Comment {
     }
     
     public function getContent() {
-        return htmlspecialchars($this->_content);
+        return $this->_content;
     }
         
     public function getId() {
