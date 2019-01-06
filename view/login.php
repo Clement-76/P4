@@ -1,6 +1,10 @@
 <form method="post">
     <h1>Connexion</h1>
     
+    <?php if ($errors): ?>
+        <p class="error_login">Identifiant ou mot de passe incorrect</p>
+    <?php endif; ?>
+    
     <p>
         <label for="user_login">Identifiant</label><br>
         <input id="user_login" type="text" name="user_login" required>
@@ -12,8 +16,4 @@
     <p>
         <input type="submit">
     </p>
-    
-    <?php if ($errors): ?>
-        <p>Identifiant ou mot de passe incorrect</p>
-    <?php endif; ?>
 </form>

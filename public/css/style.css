@@ -218,7 +218,7 @@ footer ul li:nth-child(2) {
 
 .center {
     margin: 0 auto;
-    width: 1024px;
+    max-width: 1024px;
 }
 
 #cookie {

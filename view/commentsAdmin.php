@@ -18,7 +18,7 @@
             <th>Auteur</th>
             <th>Signalements</th>
             <th>Date</th>
-            <th>Action</th>
+            <th><i class="far fa-trash-alt"></i></th>
         </tr>
     </thead>
     <tbody>
@@ -29,7 +29,7 @@
                 <td><?= $comment->getAuthor() ?></td>
                 <td><?= $comment->getNbReports() ?></td>
                 <td><?= $comment->getCreationDate('d/m/Y à H:i:s') ?></td>
-                <td><a href="index.php?action=deleteComment&commentId=<?= $comment->getId() ?>" class="delete">Supprimer</a></td>
+                <td><a href="index.php?action=deleteComment&commentId=<?= $comment->getId() ?>" class="delete">Supprimer <i class="far fa-trash-alt"></i></a></td>
             </tr>
         <?php endforeach; ?>
     </tbody>

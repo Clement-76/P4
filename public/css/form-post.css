@@ -1,0 +1,25 @@
+body {
+    background-color: #fafafa;
+}
+
+h1 {
+    font-size: 2.3em;
+}
+
+.hamburger_menu div {
+    background-color: #1e364e;
+}
+
+#post_title {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1.2em;
+}
+
+#post_title:focus {
+    border: 1px solid #428ca2;
+}
+
+.mce-tinymce.mce-container.mce-panel {
+    box-sizing: border-box;
+}

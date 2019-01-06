@@ -71,6 +71,11 @@ section#comments h2 {
     padding-bottom: 8px;
 }
 
+#newComment {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
 #newComment textarea {
     vertical-align: bottom;
 }

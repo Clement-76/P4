@@ -1,0 +1,97 @@
+body {
+    margin: 0 64px;
+}
+
+.hamburger_menu div {
+    background-color: #1e364e;
+}
+
+h1 {
+    font-size: 2.4em;
+    line-height: 1.1;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+th {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+td,
+th {
+    padding: 12px 10px;
+}
+
+th {
+    text-align: left;
+}
+
+tbody tr:nth-child(2n + 1) {
+    background-color: #f0f0f0;
+}
+
+tbody tr:hover {
+    background-color: #dbdbdb;
+}
+
+#add_post {
+    margin-bottom: 14px;
+    display: inline-block;
+    background-color: #428ca2;
+    color: #f2f2f2;
+    border-radius: 3px;
+    padding: 8px 6px;
+    transition-duration: 0.5s;
+}
+
+#add_post:hover {
+    background-color: #2c5b69;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: #3977b8;
+}
+
+a:hover {
+    color: #255383;
+}
+
+.delete {
+    color: #d15f54;
+    transition-duration: 0.3s;
+}
+
+.delete:hover {
+    color: #9b4545;
+}
+
+.nb_comments span,
+.nb_comments a {
+    width: 100%;
+}
+
+.fa-comment {
+    color: #2b343d;
+}
+
+select {
+    color: #2b343d;
+    margin-bottom: 10px;
+    padding: 4px 18px 4px 2px;
+    border: 1px solid #d0d0d0;
+    font-family: inherit;
+    font-size: 0.9em;
+    outline: none;
+}
+
+select:focus {
+    border: 1px solid #428ca2;
+}
