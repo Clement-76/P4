@@ -23,3 +23,19 @@ h1 {
 .mce-tinymce.mce-container.mce-panel {
     box-sizing: border-box;
 }
+
+/* the tinyMCE word counter */
+.mce-wordcount.mce-widget.mce-label.mce-flow-layout-item {
+    margin-right: 10px;
+}
+
+.post_error {
+    display: inline-block;
+    border: 1px solid #ba4343;
+    padding: 10px 6px;
+    border-radius: 3px;
+    color: #ba4343;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    background-color: #ffd9d9;
+}

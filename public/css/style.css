@@ -254,11 +254,6 @@ footer ul li:nth-child(2) {
     white-space: nowrap;
 }
 
-/* the tinyMCE word counter */
-.mce-wordcount.mce-widget.mce-label.mce-flow-layout-item {
-    margin-right: 10px;
-}
-
 textarea,
 input {
     font-family: var(--open-sans);
@@ -281,4 +276,73 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #2c5b69;
+}
+
+/* breakpoint for footer */
+@media all and (max-width: 954px) {
+    footer nav {
+        margin: auto;
+    }
+
+    footer ul {
+        margin-bottom: 0;
+    }
+
+    footer p {
+        margin: 10px auto;
+        text-align: center;
+    }
+}
+
+/* tablets and smartphones */
+@media all and (max-width: 768px) {
+    footer {
+        padding: 30px;
+    }
+
+    footer nav {
+        padding-left: 15px;
+    }
+
+    .container {
+        border-radius: 0;
+        width: 100%;
+        box-shadow: none;
+    }
+}
+
+/* breakpoint for footer */
+@media all and (max-width: 689px) {
+    footer span {
+        visibility: hidden;
+    }
+
+    footer li {
+        flex: 1 1 100%;
+    }
+}
+
+/* smartphones */
+@media all and (max-width: 425px) {
+    footer {
+        padding: 20px;
+    }
+
+    footer nav {
+        padding: 0;
+    }
+}
+
+@media all and (min-width: 1846px) {
+    .center {
+        max-width: 65vw;
+    }
+
+    footer .center {
+        justify-content: center;
+    }
+
+    footer nav {
+        margin-right: 60px;
+    }
 }

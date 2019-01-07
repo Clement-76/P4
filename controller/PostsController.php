@@ -61,7 +61,7 @@ class PostsController extends AppController {
     }
 
     /**
-     * display a post
+     * display a post and his comments
      */
     public function viewPost() {
         if (isset($_GET['id']) && !empty($_GET['id'])) {

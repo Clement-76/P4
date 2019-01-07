@@ -4,7 +4,7 @@
         <p>
             <input id="post_title" name="post_title" type="text" placeholder="Titre de l'article" required value="<?php if (isset($post)) echo $post->getTitle(); ?>">
             <?php if (isset($errors['post_title'])): ?>
-                <br><span>Veuillez entrer le titre de l'article</span>
+                <span class="post_error">Veuillez entrer le titre de l'article</span>
             <?php endif; ?>
         </p>
         <p>
@@ -12,7 +12,7 @@
                 <?php if (isset($post)) echo $post->getContent() ?>
             </textarea>
             <?php if (isset($errors['post_content'])): ?>
-                <span>Veuillez entrer le contenu de l'article</span>
+                <span class="post_error">Veuillez entrer le contenu de l'article</span>
             <?php endif; ?>
         </p>
         <p>

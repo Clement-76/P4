@@ -7,7 +7,7 @@
             <div><?= $this->getSummary(strip_tags($post->getContent())) ?></div>
             <a href="index.php?action=viewPost&id=<?= $post->getId() ?>">Voir l'article</a>
             <div class="italic">
-                Publié par <strong><?= $post->getAuthor() ?></strong>
+                <span>Publié par</span> <strong><?= $post->getAuthor() ?></strong>
                 le <time datetime="<?= $post->getCreationDate('Y-m-d') ?>"><?= $post->getCreationDate('d/m/Y') ?></time>
             </div>
             <div><i class="fas fa-comment"></i> <?= $post->getNbComments() ?></div>

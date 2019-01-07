@@ -52,11 +52,11 @@ class CommentsController extends AppController {
     public function addComment() {
         $errors = false;
         
-        if (!isset($_POST['comment']) || empty($_POST['comment'])) {
+        if (!isset($_POST['comment']) || empty($_POST['comment']) || preg_match("#(^(\n|\r)+$)|(^(\s)+$)#", $_POST['comment'])) {
             $errors = true;
         }
         
-        if (!isset($_POST['pseudo']) || empty($_POST['pseudo'])) {
+        if (!isset($_POST['pseudo']) || empty($_POST['pseudo']) || preg_match("#^(\s)+$#", $_POST['pseudo'])) {
             $errors = true;
         }
         
