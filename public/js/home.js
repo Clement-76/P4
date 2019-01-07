@@ -52,7 +52,7 @@ $(function () {
      * change the color of the hamburger menu according to the scroll value
      */
     function hamburger_color () {
-        if (window.innerWidth < 768) {
+        if (window.innerWidth <= 768) {
             // the value of scroll where the color change
             let value = $("#home").height() - parseFloat($(".hamburger_menu").css("top")) - parseFloat($(".hamburger_menu").css("padding-top"));
 

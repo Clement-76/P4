@@ -7,8 +7,16 @@ body {
 }
 
 .report {
-    visibility: hidden;
+    color: #247ad7;
     margin-left: 3px;
+}
+
+.report:nth-child(2n + 1) {
+    display: none;
+}
+
+.comment:hover .report {
+    visibility: visible;
 }
 
 .comment {
@@ -32,10 +40,6 @@ body {
 
 .comment div p:last-child {
     margin-bottom: 0;
-}
-
-.comment:hover .report {
-    visibility: visible;
 }
 
 .comment b {
@@ -103,4 +107,66 @@ section#comments h2 {
     position: fixed;
     background-color: #428ca2;
     transition: 0.3s linear;
+}
+
+/* tablets and smartphones */
+@media all and (max-width: 768px) {
+    #post h1 {
+        font-size: 2em;
+        margin-top: 36px;
+    }
+
+    #post {
+        font-size: 1.2em;
+        padding: 30px 30px 10px 30px;
+    }
+
+    section#comments {
+        padding: 0 30px 20px 30px;
+    }
+
+    #newComment textarea {
+        width: 75%;
+        box-sizing: border-box;
+        min-width: 380px;
+    }
+}
+
+/* smartphones */
+@media all and (max-width: 425px) {
+    #post h1 {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+
+    #post {
+        font-size: 1.2em;
+        padding: 30px 15px 10px 15px;
+    }
+
+    section#comments {
+        padding: 0 15px 20px 15px;
+    }
+
+    #newComment textarea {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .italic span {
+        display: none;
+    }
+
+    .report:nth-child(2n) {
+        display: none;
+    }
+
+    .report:nth-child(2n + 1) {
+        display: inline;
+        margin-left: 0;
+    }
+    
+    .comment div {
+        margin: 0;
+    }
 }

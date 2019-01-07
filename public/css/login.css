@@ -68,3 +68,13 @@ form input[type="submit"] {
     border-radius: 3px;
     color: #ffd6d6;
 }
+
+/* tablets and smartphones */
+@media all and (max-width: 768px) {
+    
+}
+
+/* smartphones */
+@media all and (max-width: 425px) {
+    
+}

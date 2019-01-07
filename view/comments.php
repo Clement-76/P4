@@ -23,6 +23,7 @@
                 <a href="index.php?action=reportComment&commentId=<?= $comment->getId() ?>" class="report">Signaler</a>
             </p>
             <div><?= $comment->getContent() ?></div>
+            <a href="index.php?action=reportComment&commentId=<?= $comment->getId() ?>" class="report">Signaler</a>
         </div>
     <?php endforeach; ?>
 </section>
