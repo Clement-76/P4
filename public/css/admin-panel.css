@@ -95,3 +95,14 @@ select {
 select:focus {
     border: 1px solid #428ca2;
 }
+
+
+/* tablets and smartphones */
+@media all and (max-width: 768px) {
+    
+}
+
+/* smartphones */
+@media all and (max-width: 425px) {
+    
+}
