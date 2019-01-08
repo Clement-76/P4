@@ -148,6 +148,10 @@ aside .close {
     margin: 9px 0;
 }
 
+.submenu {
+    padding-left: 30px;
+}
+
 .italic {
     font-style: italic;
 }

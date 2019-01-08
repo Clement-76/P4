@@ -35,6 +35,10 @@ function statusMessage(status, message) {
     });
 
     setTimeout(function () {
-        div.remove();
-    }, 10000);
+        div.animate({
+            top: '-100px'
+        }, 300, function () {
+            div.remove();
+        });
+    }, 3000);
 }

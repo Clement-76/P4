@@ -48,10 +48,11 @@
             <ul>
                 <li><a href="index.php">ACCUEIL</a></li>
                 <?php if (!isset($_SESSION['user'])): ?>
-                    <li><a href="index.php?action=login">ADMIN</a></li>
+                    <li><a href="index.php?action=login">ADMINISTRATION</a></li>
                 <?php else: ?>
-                    <li><a href="index.php?action=listPostsAdmin">ARTICLES</a></li>
-                    <li><a href="index.php?action=listComments">COMMENTAIRES</a></li>
+                    <li><a>ADMINISTRATION</a></li>
+                    <li class="submenu"><a href="index.php?action=listPostsAdmin">ARTICLES</a></li>
+                    <li class="submenu"><a href="index.php?action=listComments">COMMENTAIRES</a></li>
                     <li><a href="index.php?action=logout">DECONNEXION</a></li>
                 <?php endif; ?>
             </ul>
