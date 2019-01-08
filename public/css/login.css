@@ -12,6 +12,7 @@ body {
 
 .hamburger_menu div {
     border: none;
+    height: 4px;
 }
 
 .hamburger_menu div:nth-child(2) {

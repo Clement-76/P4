@@ -331,6 +331,15 @@ input[type="submit"]:hover {
     footer nav {
         padding: 0;
     }
+
+    .hamburger_menu {
+        top: 10px;
+        right: 10px;
+    }
+
+    .hamburger_menu div {
+        height: 3px;
+    }
 }
 
 @media all and (min-width: 1846px) {

@@ -13,6 +13,11 @@ $(function () {
             table: {title: 'Table', items: 'inserttable tableprops deletetable | cell row column'},
             tools: {title: 'Tools', items: 'restoredraft'}
         },
+        mobile: {
+            theme: 'mobile',
+            plugins: ['lists'],
+            toolbar: ['undo', 'redo', 'bold', 'italic', 'link', 'bullist', 'numlist']
+        },
         content_style: "* {font-family: 'Open Sans', sans-serif} p {font-size: 1.3em} a {color: #007bff} p, h1, h2, h3, h4, h5, h6 {color: #2b343d}",
         content_css: ['//fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i']
     });

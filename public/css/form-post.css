@@ -1,5 +1,6 @@
 body {
     background-color: #fafafa;
+    margin: 0 20px;
 }
 
 h1 {
@@ -43,10 +44,23 @@ h1 {
 
 /* tablets and smartphones */
 @media all and (max-width: 768px) {
-    
+    h1 {
+        font-size: 2em;
+        margin-top: 15px;
+        padding-right: 58px;
+    }
 }
 
 /* smartphones */
 @media all and (max-width: 425px) {
+    body {
+        margin: 0 10px;
+        margin-top: 10px;
+    }
     
+    h1 {
+        font-size: 1.8em;
+        padding-right: 50px;
+        margin-top: 5px;
+    }
 }
