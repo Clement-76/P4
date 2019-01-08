@@ -13,7 +13,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
-    background-image: radial-gradient(circle, rgba(38, 49, 69, 0.7) 10%, rgba(38, 49, 69, 0.8) 100%), url(../images/alaska-inside-passage.jpg);
+    background-image: radial-gradient(circle, rgba(38, 49, 69, 0.7) 10%, rgba(38, 49, 69, 0.8) 100%), url(../images/alaska_mountains.jpg);
     background-attachment: fixed;
 }
 
@@ -125,8 +125,18 @@ a {
     }
 }
 
+@media all and (max-width: 1800px) {
+    #home {
+        background-image: radial-gradient(circle, rgba(38, 49, 69, 0.7) 10%, rgba(38, 49, 69, 0.8) 100%), url(../images/alaska_mountains_medium.jpg);
+    }
+}
+
 /* tablets and smartphones */
 @media all and (max-width: 768px) {
+    #home {
+        background-image: radial-gradient(circle, rgba(38, 49, 69, 0.7) 10%, rgba(38, 49, 69, 0.8) 100%), url(../images/alaska_mountains_small.jpg);
+    }
+    
     .title {
         font-size: 3em;
     }

@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: linear-gradient(#000000 0%, rgba(0, 0, 0, 0.4) 0%), url('../images/water-3166306.jpg') center / cover no-repeat;
+    background: linear-gradient(#000000 0%, rgba(0, 0, 0, 0.4) 0%), url('../images/alaska_water.jpg') center / cover no-repeat;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -70,11 +70,20 @@ form input[type="submit"] {
     color: #ffd6d6;
 }
 
+@media all and (max-width: 1800px) {
+    body {
+        background: linear-gradient(#000000 0%, rgba(0, 0, 0, 0.4) 0%), url('../images/alaska_water_medium.jpg') center / cover no-repeat;
+    }
+}
+
 /* tablets and smartphones */
 @media all and (max-width: 768px) {
+    body {
+        background: linear-gradient(#000000 0%, rgba(0, 0, 0, 0.4) 0%), url('../images/alaska_water_small.jpg') center / cover no-repeat;
+    }
+    
     form {
-        width: 90%;
-        min-width: 0;
+        width: 320px;
         padding: 10px;
         border-radius: 5px;
     }
@@ -87,5 +96,8 @@ form input[type="submit"] {
 
 /* smartphones */
 @media all and (max-width: 425px) {
-    
+    form {
+        min-width: 0;
+        width: 90%;
+    }
 }
