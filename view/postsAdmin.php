@@ -15,18 +15,18 @@
     <tbody>
         <?php foreach($posts as $post): ?>
             <tr>
-                <td><?= $post->getTitle() ?></td>
-                <td><?= $post->getAuthor() ?></td>
+                <td><?= $post->getTitle() ?><i class="fas fa-caret-down"></i></td>
+                <td class="author"><?= $post->getAuthor() ?></td>
                 <td class="nb_comments">
                     <?php if ($post->getNbComments() == 0): ?>
-                        <span><i class="fas fa-comment"></i> <?= $post->getNbComments() ?></span>
+                        <span><i class="fas fa-comment"></i> 0</span>
                     <?php else: ?>
                         <a href="index.php?action=listPostComments&id=<?= $post->getId() ?>"><i class="fas fa-comment"></i> <?= $post->getNbComments() ?></a>
                     <?php endif; ?>
                 </td>
-                <td><?= $post->getCreationDate('d/m/Y') ?></td>
-                <td><a href="index.php?action=editPost&id=<?= $post->getId() ?>" class="edit">Modifier <i class="far fa-edit"></i></a></td>
-                <td><a href="index.php?action=deletePost&id=<?= $post->getId() ?>" class="delete">Supprimer <i class="far fa-trash-alt"></i></a></td>
+                <td class="date"><?= $post->getCreationDate('d/m/Y') ?></td>
+                <td class="td_edit"><a href="index.php?action=editPost&id=<?= $post->getId() ?>" class="edit">Modifier <i class="far fa-edit"></i></a></td>
+                <td class="td_delete"><a href="index.php?action=deletePost&id=<?= $post->getId() ?>" class="delete">Supprimer <i class="far fa-trash-alt"></i></a></td>
             </tr>
         <?php endforeach; ?>
     </tbody>

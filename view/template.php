@@ -93,6 +93,10 @@
         <script src="public/js/progress.js"></script>
     <?php endif; ?>
     
+    <?php if (isset($_GET['action']) && in_array($_GET['action'], ['listPostsAdmin', 'listPostComments', 'listComments'])): ?>
+        <script src="public/js/table.js"></script>
+    <?php endif; ?>
+    
     <?php if (!isset($_GET['action'])): ?>
         <script src="public/js/home.js"></script>
     <?php endif; ?>

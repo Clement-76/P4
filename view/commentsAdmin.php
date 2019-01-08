@@ -25,10 +25,10 @@
         <?php foreach($comments as $comment): ?>
             <tr class="<?= ($comment->getNbReports() == 0) ? 'not_comment_report' : '' ?>">
                 
-                <td><?= preg_replace("#<p>(.+)<\/p>#U", " $1 ", $comment->getContent()) ?></td>
-                <td><?= $comment->getAuthor() ?></td>
-                <td><?= $comment->getNbReports() ?></td>
-                <td><?= $comment->getCreationDate('d/m/Y à H:i:s') ?></td>
+                <td><?= preg_replace("#<p>(.+)<\/p>#U", " $1 ", $comment->getContent()) ?><i class="fas fa-caret-down"></i></td>
+                <td class="author"><?= $comment->getAuthor() ?></td>
+                <td class="nb_reports"><?= $comment->getNbReports() ?></td>
+                <td class="date"><?= $comment->getCreationDate('d/m/Y à H:i:s') ?></td>
                 <td><a href="index.php?action=deleteComment&commentId=<?= $comment->getId() ?>" class="delete">Supprimer <i class="far fa-trash-alt"></i></a></td>
             </tr>
         <?php endforeach; ?>
