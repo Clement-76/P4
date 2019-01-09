@@ -26,7 +26,7 @@ function statusMessage(status, message) {
         top: '15px'
     }, 300);
 
-    $(".close").on("click", function () {
+    $(".success .close, .error .close").on("click", function () {
         div.animate({
             top: '-100px'
         }, 300, function () {

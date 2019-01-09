@@ -313,6 +313,25 @@ input[type="submit"]:hover {
         width: 100%;
         box-shadow: none;
     }
+
+    .error,
+    .success {
+        width: 60%;
+
+    }
+
+    .success .close,
+    .error .close {
+        width: 60px;
+    }
+    
+    #cookie {
+        padding: 10px 20px;
+    }
+    
+    #cookie p {
+        margin: 0;
+    }
 }
 
 /* breakpoint for footer */

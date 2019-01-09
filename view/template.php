@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="public/css/login.css">
     <?php endif; ?>
     
-    <?php if (!isset($_GET['action'])): ?>
+    <?php if (!isset($_GET['action']) || empty($_GET['action'])): ?>
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="public/css/home.css">
     <?php endif; ?>
@@ -69,6 +69,12 @@
     
     <?= $content ?>
     
+    <?php if (!isset($_COOKIE['acceptCookies']) || $_COOKIE['acceptCookies'] != "true"): ?>
+        <div id="cookie">
+            <p>En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer une navigation <span>optimale.<button>OK</button></span></p>
+        </div>
+    <?php endif; ?>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="public/js/menu.js"></script>
     <script src="public/js/cookies.js"></script>
@@ -98,7 +104,7 @@
         <script src="public/js/table.js"></script>
     <?php endif; ?>
     
-    <?php if (!isset($_GET['action'])): ?>
+    <?php if (!isset($_GET['action']) || empty($_GET['action'])): ?>
         <script src="public/js/home.js"></script>
     <?php endif; ?>
 </body>

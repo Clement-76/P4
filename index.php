@@ -6,12 +6,7 @@ Autoloader::register();
 
 session_start();
 
-if (!isset($_COOKIE['acceptCookies'])) {
-    require_once "view/cookie.php";
-}
-
-$namespace = 'ClementPatigny\Controller\\';
-
+$namespace = '\ClementPatigny\Controller\\';
 if (isset($_GET['action']) && !empty($_GET['action'])) {
     $action = $_GET['action'];
     

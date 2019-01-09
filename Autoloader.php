@@ -9,7 +9,8 @@ class Autoloader {
     
     static function autoload($class) {
         $class = str_replace('ClementPatigny\\', '', $class);
-        $class = lcfirst($class);
-        require $class . '.php';
+        $class = str_replace('\\', '/', $class);
+        $class = lcfirst($class) . '.php';
+        require __DIR__ . '/' . $class;
     }
 }

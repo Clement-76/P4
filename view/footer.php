@@ -10,6 +10,6 @@
             <p>Copyright © <?= date('Y') ?> Tous droits réservés</p>
         </div>
     </footer>
-<?php if (!isset($_GET['action'])): ?>
+<?php if (!isset($_GET['action']) || empty($_GET['action'])): ?>
 </div>
 <?php endif; ?>
