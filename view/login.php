@@ -14,6 +14,6 @@
         <input id="user_password" type="password" name="user_password" required>
     </p>
     <p>
-        <input type="submit">
+        <input type="submit" value="se connecter">
     </p>
 </form>
